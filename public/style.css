@@ -1,0 +1,6 @@
+/** GLOBAL STYLINGS FOR APPLICATION **/
+* {
+    margin: 0;
+    /** Add Font Family chosen here **/
+    font-family: sans-serif;
+}
