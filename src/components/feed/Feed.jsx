@@ -3,6 +3,9 @@ import Post from '../post/Post';
 import Share from '../share/Share';
 
 
+import { Posts } from '../../dummyDb';
+
+
 const Feed = () => {
 
 
@@ -10,13 +13,10 @@ const Feed = () => {
         <div className='feed'>
             <div className="feedWrapper">
                 <Share />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
+
+                {Posts.map(post => (
+                    <Post key={post.id} post={post} />
+                ))}
             </div>
         </div>
     )

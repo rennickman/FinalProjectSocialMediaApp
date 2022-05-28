@@ -5,8 +5,16 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import './post.css';
 
 
-const Post = () => {
+import { Users } from '../../dummyDb';
 
+
+const Post = ({ post }) => {
+
+    
+    // Finding Dummy User for Dummy Post
+    const user = Users.filter(user => user.id === post.userId)[0]
+
+    
 
     return (
         <div className='post'>
@@ -14,9 +22,9 @@ const Post = () => {
                 {/** Post Details Section */}
                 <div className="postTop">
                     <div className="postTopLeft">
-                        <img src="/assets/babyYoda.jpg" alt="Poster Profile Pic" className="postProfilePic" />
-                        <span className="postUserName">Ian Rennick</span>
-                        <span className="postDate">5 mins ago</span>
+                        <img src={user.profilePic} alt="Poster Profile Pic" className="postProfilePic" />
+                        <span className="postUserName">{user.userName}</span>
+                        <span className="postDate">{post.date}</span>
                     </div>
 
                     <div className="postTopRight">
@@ -26,8 +34,8 @@ const Post = () => {
 
                 {/** Post Contents Section */}
                 <div className="postCenter">
-                    <span className="postText">HEy whats scrocK!??</span>
-                    <img src="/assets/babyYoda.jpg" alt="Post Pic" className='postImage' />
+                    <span className="postText">{post?.message}</span>
+                    <img src={post.photo} alt="Post Pic" className='postImage' />
                 </div>
 
                 {/** Liks and Comment Section */}
@@ -35,11 +43,11 @@ const Post = () => {
                     <div className="postBottomLeft">
                         <ThumbUpIcon className='likeIcon' />
                         <FavoriteIcon className='likeIcon' />
-                        <span className="postLikeCounter">32 people like it</span>
+                        <span className="postLikeCounter">{post.likes} people like it</span>
                     </div>
                     
                     <div className="postBottomRight">
-                        <span className="postCommentsText">9 Comments</span>
+                        <span className="postCommentsText">{post.comments} Comments</span>
                     </div>
                 </div>
             </div>
