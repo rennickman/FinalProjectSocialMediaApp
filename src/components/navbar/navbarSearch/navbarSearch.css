@@ -1,0 +1,27 @@
+/** Searchbar Section **/
+.navbarCenter {
+    flex: 5;
+}
+
+.navbarSearchbar {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    /** COLOR NEEDS TO BE CHANGED **/
+    background-color: white;
+    border-radius: 30px;
+}
+
+.navbarSearchIcon {
+    font-size: 20px !important;
+}
+
+.navbarSearchInput {
+    width: 70%;
+    border: none;
+}
+
+.navbarSearchInput:focus {
+    outline: none;
+}

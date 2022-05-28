@@ -19,14 +19,9 @@ const Home = () => {
                 <Feed />
                 <FriendsBar />
             </div>
-        </>
-        
+        </> 
     )
 }
-
-
-
-
 
 
 export default Home;

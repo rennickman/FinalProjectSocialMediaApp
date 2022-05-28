@@ -26,39 +26,6 @@
     cursor: pointer;
 }
 
-
-
-/** Searchbar Section **/
-.navbarCenter {
-    flex: 5;
-}
-
-.navbarSearchbar {
-    display: flex;
-    align-items: center;
-    height: 30px;
-    width: 100%;
-    /** COLOR NEEDS TO BE CHANGED **/
-    background-color: white;
-    border-radius: 30px;
-}
-
-.navbarSearchIcon {
-    font-size: 20px !important;
-}
-
-.navbarSearchInput {
-    width: 70%;
-    border: none;
-}
-
-.navbarSearchInput:focus {
-    outline: none;
-}
-
-
-
-
 /** Links, Notifications and Profile Pic Section **/
 .navbarRight {
     flex: 4;
@@ -67,44 +34,8 @@
     justify-content: space-around;
 }
 
-.navbarLink {
-    font-size: 14px;
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-.navbarNotifications {
-    display: flex;
-}
 
 
-.navbarNotification {
-    position: relative;
-    margin-right: 15px;
-    cursor: pointer;
-}
 
 
-.navbarNotificationBadge {
-    display: flex;
-    align-items: center;
-    height: 15px;
-    width: 15px;
-    font-size: 12px;
-    border-radius: 50%;
-    /** COLORS NEED TO BE CHANGED **/
-    background-color: slateblue;
-    color: white;
-    position: absolute;
-    top: -5px;
-    right: -5px;
-}
 
-
-.navbarProfilePic {
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    cursor: pointer;
-}

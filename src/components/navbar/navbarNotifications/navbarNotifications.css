@@ -1,0 +1,26 @@
+.navbarNotifications {
+    display: flex;
+}
+
+
+.navbarNotification {
+    position: relative;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+
+.navbarNotificationBadge {
+    display: flex;
+    align-items: center;
+    height: 15px;
+    width: 15px;
+    font-size: 12px;
+    border-radius: 50%;
+    /** COLORS NEED TO BE CHANGED **/
+    background-color: slateblue;
+    color: white;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
