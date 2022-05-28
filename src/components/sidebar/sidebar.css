@@ -19,57 +19,10 @@
 
 
 
-/** Menu Section **/
-.sidebarMenu {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.sidebarMenuItem {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.sidebarMenuIcon {
-    margin-right: 15px;
-}
-
-.sidebarMenuButton {
-    width: 150px;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: 500;
-}
-
-.sidebarMenuHr {
-    margin: 20px 0;
-}
 
 
 
 
 
 
-/** Favourite Friends Section **/
-.sidebarFriends {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
 
-.sidebarFriend {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.sidebarFriendProfilePic {
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px;
-}
