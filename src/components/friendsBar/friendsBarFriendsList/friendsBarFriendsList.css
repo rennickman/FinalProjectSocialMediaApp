@@ -1,0 +1,10 @@
+/** Online Friends List **/
+.friendsBarTitle {
+    margin-bottom: 20px;
+}
+
+.friendsBarFriendsList {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}

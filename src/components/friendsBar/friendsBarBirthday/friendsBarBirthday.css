@@ -1,0 +1,15 @@
+/** Friends Bar Birthday Section **/
+.friendsBarBirthdayContainer {
+    display: flex;
+    align-items: center;
+}
+
+.birthdayIcon {
+    font-size: 40px !important;
+    margin-right: 10px;
+}
+
+.birthdayText {
+    font-size: 15px;
+    font-weight: 300;
+}

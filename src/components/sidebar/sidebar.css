@@ -1,5 +1,7 @@
 .sidebar {
     flex: 3;
+    position: sticky;
+    top: 50px;
     /** 50px represents navbar height - may need to be updated **/
     height: calc(100vh - 50px);
     background-color: aquamarine;

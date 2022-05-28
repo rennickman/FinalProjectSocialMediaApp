@@ -1,4 +1,12 @@
+import SidebarFriend from '../sidebarFriend/SidebarFriend';
 import './sidebarFriendsList.css';
+
+
+
+// Dummy Users List
+import { Users } from '../../../dummyDb';
+
+
 
 
 const SidebarFriendsList = () => {
@@ -8,40 +16,9 @@ const SidebarFriendsList = () => {
         <>
             {/** Favourite Friends List Section */}
             <ul className="sidebarFriends">
-                <li className="sidebarFriend">
-                    <img src="/assets/babyYoda.jpg" alt="Friend Profile Pic" className="sidebarFriendProfilePic" />
-                    <span className="sidebarFriendName">Bobby Boy</span>
-                </li>
-
-                <li className="sidebarFriend">
-                    <img src="/assets/babyYoda.jpg" alt="Friend Profile Pic" className="sidebarFriendProfilePic" />
-                    <span className="sidebarFriendName">Bobby Boy</span>
-                </li>
-
-                <li className="sidebarFriend">
-                    <img src="/assets/babyYoda.jpg" alt="Friend Profile Pic" className="sidebarFriendProfilePic" />
-                    <span className="sidebarFriendName">Bobby Boy</span>
-                </li>
-
-                <li className="sidebarFriend">
-                    <img src="/assets/babyYoda.jpg" alt="Friend Profile Pic" className="sidebarFriendProfilePic" />
-                    <span className="sidebarFriendName">Bobby Boy</span>
-                </li>
-
-                <li className="sidebarFriend">
-                    <img src="/assets/babyYoda.jpg" alt="Friend Profile Pic" className="sidebarFriendProfilePic" />
-                    <span className="sidebarFriendName">Bobby Boy</span>
-                </li>
-
-                <li className="sidebarFriend">
-                    <img src="/assets/babyYoda.jpg" alt="Friend Profile Pic" className="sidebarFriendProfilePic" />
-                    <span className="sidebarFriendName">Bobby Boy</span>
-                </li>
-
-                <li className="sidebarFriend">
-                    <img src="/assets/babyYoda.jpg" alt="Friend Profile Pic" className="sidebarFriendProfilePic" />
-                    <span className="sidebarFriendName">Bobby Boy</span>
-                </li>
+                {Users.map(user => (
+                    <SidebarFriend key={user.id} user={user} />
+                ))}
             </ul>
         </>
     )

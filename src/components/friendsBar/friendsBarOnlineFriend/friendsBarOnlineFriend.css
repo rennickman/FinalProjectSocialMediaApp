@@ -1,0 +1,34 @@
+/** Online Friend **/
+.friendsBarFriend {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.friendsBarProfilePicContainer {
+    position: relative;
+    margin-right: 10px;
+}
+
+.friendsBarProfilePic {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.friendsBarOnlineStatus {
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    top: -2px;
+    right: 0;
+    border-radius: 50%;
+    /** COLOR NEEDS TO BE CHANGED **/
+    background-color: rgb(35, 231, 35);
+    border: 2px solid white;
+}
+
+.friendsBarUserName {
+    font-weight: 500;
+}
