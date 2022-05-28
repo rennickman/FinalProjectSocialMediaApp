@@ -1,7 +1,7 @@
-import React from 'react';
+import './feed.css';
+import Post from '../post/Post';
 import Share from '../share/Share';
 
-import './feed.css';
 
 const Feed = () => {
 
@@ -10,6 +10,13 @@ const Feed = () => {
         <div className='feed'>
             <div className="feedWrapper">
                 <Share />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
             </div>
         </div>
     )
