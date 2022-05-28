@@ -24,5 +24,6 @@ const SidebarFriendsList = () => {
     )
 }
 
+
 export default SidebarFriendsList;
 

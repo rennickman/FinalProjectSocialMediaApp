@@ -1,0 +1,11 @@
+/** Center Section **/
+.postCenter {
+    margin: 20px 0;
+}
+
+.postImage {
+    max-height: 500px;
+    width: 100%;
+    margin-top: 20px;
+    object-fit: contain;
+}
