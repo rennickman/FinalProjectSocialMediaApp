@@ -1,0 +1,95 @@
+.friendsBar {
+    flex: 3.5;
+}
+
+.friendsBarWrapper {
+    padding: 20px 20px 0 10px;
+}
+
+
+
+
+/** Friends Bar Birthday Section **/
+.friendsBarBirthdayContainer {
+    display: flex;
+    align-items: center;
+}
+
+.birthdayIcon {
+    font-size: 40px !important;
+    margin-right: 10px;
+}
+
+.birthdayText {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+
+
+
+
+
+
+
+/** Friends Bar Random Post Image **/
+.friendsBarRandomPostImage {
+    max-height: 400px;
+    width: 100%;
+    margin-top: 20px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+/** Online Friends List **/
+.friendsBarTitle {
+    margin-bottom: 20px;
+}
+
+.friendsBarFriendsList {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.friendsBarFriend {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.friendsBarProfilePicContainer {
+    position: relative;
+    margin-right: 10px;
+}
+
+.friendsBarProfilePic {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.friendsBarOnlineStatus {
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    top: -2px;
+    right: 0;
+    border-radius: 50%;
+    /** COLOR NEEDS TO BE CHANGED **/
+    background-color: rgb(35, 231, 35);
+    border: 2px solid white;
+}
+
+.friendsBarUserName {
+    font-weight: 500;
+}

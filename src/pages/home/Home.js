@@ -1,10 +1,8 @@
-import React from 'react';
-
 import './home.css';
 import Navbar from '../../components/navbar/Navbar';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Feed from '../../components/feed/Feed';
-import FriendsList from '../../components/friendsList/FriendsList';
+import FriendsBar from '../../components/friendsBar/FriendsBar';
 
 
 
@@ -19,7 +17,7 @@ const Home = () => {
             <div className="homePageContainer">
                 <Sidebar />
                 <Feed />
-                <FriendsList />
+                <FriendsBar />
             </div>
         </>
         

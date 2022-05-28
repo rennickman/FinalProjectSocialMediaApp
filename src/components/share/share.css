@@ -68,7 +68,7 @@
 }
 
 .shareIcon {
-    font-size: 18px;
+    font-size: 18px !important;
     margin-right: 3px;
 }
 
