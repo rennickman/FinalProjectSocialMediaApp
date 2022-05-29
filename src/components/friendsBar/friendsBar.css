@@ -10,6 +10,51 @@
 
 
 
+.friendsBarProfileTitle {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.friendsBarInfo {
+    margin-bottom: 30px;
+}
+
+.friendsBarInfoItem {
+    margin-bottom: 10px;
+}
+
+.friendsBarInfoKey {
+    font-weight: 500;
+    margin-right: 15px;
+    color: dimgrey;
+}
+
+.friendsBarInfoValue {
+    font-weight: 300;
+}
+
+.friendsBarFollowsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.friendsBarFollowedUser {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.friendsBarFollowedUserPic {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
 
 
 

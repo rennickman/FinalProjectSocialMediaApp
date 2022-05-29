@@ -14,7 +14,7 @@ const FriendsBarFriendsList = () => {
     return (
         <>
             {/** Online Friends Section */}
-            <h4 className="friendsBarTitle">Online Friends</h4>
+            <h4 className="friendsBarFriendsTitle">Online Friends</h4>
             <ul className="friendsBarFriendsList">
                 {Users.map(user => (
                     <FriendsBarOnlineFriend key={user.id} user={user} />
