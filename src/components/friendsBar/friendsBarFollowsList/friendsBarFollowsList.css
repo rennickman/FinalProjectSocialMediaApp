@@ -1,0 +1,25 @@
+.friendsBarFollowsTitle {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.friendsBarFollowsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.friendsBarFollowedUser {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.friendsBarFollowedUserPic {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}

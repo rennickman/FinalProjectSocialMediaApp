@@ -3,6 +3,10 @@ import Navbar from '../../components/navbar/Navbar';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Feed from '../../components/feed/Feed';
 import FriendsBar from '../../components/friendsBar/FriendsBar';
+import ProfileUserCover from '../../components/profileUser/profileUserCover/ProfileUserCover';
+import ProfileUserInfo from '../../components/profileUser/profileUserInfo/ProfileUserInfo';
+
+
 
 
 const Profile = () => {
@@ -18,15 +22,8 @@ const Profile = () => {
 
                     <div className="profilePageRight">
                         <div className="profilePageRightTop">
-                            <div className="profileCover">
-                                <img src="assets/babyYoda.jpg" alt="Cover Photo" className="profileCoverPic" />
-                                <img src="assets/Lennon.jpg" alt="Cover Photo" className="profilePic" />
-                            </div>
-                            
-                            <div className="profileInfo">
-                                <h4 className='profileInfoName'>Willy Wonka</h4>
-                                <span className='profileInfoStatus'>Milky bars are on me boyos!!!</span>
-                            </div>
+                            <ProfileUserCover />
+                            <ProfileUserInfo />
                         </div>
 
                         <div className="profilePageRightBottom">
