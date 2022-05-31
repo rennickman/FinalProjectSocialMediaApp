@@ -41,7 +41,7 @@ const FriendsBar = ({ profile }) => {
     return (
         <div className='friendsBar'>
             <div className="friendsBarWrapper">
-                <ProfilePageFriendsBar />
+                {profile ? <ProfilePageFriendsBar /> : <HomePageFriendsBar />}
             </div>
         </div>
     )
