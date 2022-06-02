@@ -1,10 +1,10 @@
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { format } from 'timeago.js';
+
 import './postSender.css';
 
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-
-
-const PostSender = ({ user, date }) => {
+const PostSender = ({ user, createdAt }) => {
 
 
     return (
@@ -14,7 +14,7 @@ const PostSender = ({ user, date }) => {
                 <div className="postTopLeft">
                     <img src='/assets/babyYoda.jpg' alt="Poster Profile Pic" className="postProfilePic" />
                     <span className="postUserName">{user.firstname} {user.surname}</span>
-                    <span className="postDate">5 mins ago</span>
+                    <span className="postDate">{format(createdAt)}</span>
                 </div>
 
                 <div className="postTopRight">

@@ -5,6 +5,7 @@ import PostLikesAndComments from './postLikesAndComments/PostLikesAndComments';
 
 
 
+
 const Post = ({ post }) => {
 
     
@@ -12,7 +13,7 @@ const Post = ({ post }) => {
     return (
         <div className='post'>
             <div className="postWrapper">
-                <PostSender user={post.user} date={post.created_at} />
+                <PostSender user={post.user} createdAt={post.created_at} />
                 <PostContents message={post.comment} />
                 <PostLikesAndComments comments={post.comments} likes={post.post_likes} />
             </div>
