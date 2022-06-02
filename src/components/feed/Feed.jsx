@@ -9,22 +9,21 @@ import Share from '../share/Share';
 
 
 
-const Feed = () => {
+const Feed = ({ userId }) => {
 
 
     const [posts, setPosts] = useState([]);
 
-
+    // Fetch all Posts
     useEffect(() => {
-        
         const fetchFeed = async () => {
+
+            
             const res = await axios.get('http://localhost:3000/api/v1/posts/',
-                {
-                    headers: {
+                { headers: {
                         "Content-Type": 'application/json',
                         "Authorization": 'Bearer YkYwNV-BjrtCidkSO0mz2tJ45_zoJYpW4UM0BEqvoPM'
-                    }
-                })
+                    }})
             setPosts(res.data);
         } 
         fetchFeed();
