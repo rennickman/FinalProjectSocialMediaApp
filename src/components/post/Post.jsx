@@ -4,24 +4,17 @@ import PostContents from './postContents/PostContents';
 import PostLikesAndComments from './postLikesAndComments/PostLikesAndComments';
 
 
-// Dummy User data
-import { Users } from '../../dummyDb';
-
 
 const Post = ({ post }) => {
-
-    
-    // Finding Dummy User for Dummy Post
-    const user = Users.filter(user => user.id === post.userId)[0]
 
     
 
     return (
         <div className='post'>
             <div className="postWrapper">
-                <PostSender user={user} post={post} />
-                <PostContents post ={post} />
-                <PostLikesAndComments post={post} />
+                <PostSender user={post.user} date={post.created_at} />
+                <PostContents message={post.comment} />
+                <PostLikesAndComments comments={post.comments} likes={post.post_likes} />
             </div>
         </div>
     )

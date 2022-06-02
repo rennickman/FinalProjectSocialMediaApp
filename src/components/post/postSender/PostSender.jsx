@@ -4,7 +4,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 
 
-const PostSender = ({ user, post }) => {
+const PostSender = ({ user, date }) => {
 
 
     return (
@@ -12,9 +12,9 @@ const PostSender = ({ user, post }) => {
             {/** Post Sender Section */}
             <div className="postTop">
                 <div className="postTopLeft">
-                    <img src={user.profilePic} alt="Poster Profile Pic" className="postProfilePic" />
-                    <span className="postUserName">{user.userName}</span>
-                    <span className="postDate">{post.date}</span>
+                    <img src='/assets/babyYoda.jpg' alt="Poster Profile Pic" className="postProfilePic" />
+                    <span className="postUserName">{user.firstname} {user.surname}</span>
+                    <span className="postDate">5 mins ago</span>
                 </div>
 
                 <div className="postTopRight">
