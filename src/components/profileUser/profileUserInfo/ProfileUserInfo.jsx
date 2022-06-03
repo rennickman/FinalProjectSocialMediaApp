@@ -2,15 +2,16 @@ import './profileUserInfo.css';
 
 
 
-const ProfileUserInfo = () => {
+const ProfileUserInfo = ({ user }) => {
+
 
 
     return (
         <>
             {/** Profile Name and Status Section */}
             <div className="profileInfo">
-                <h4 className='profileInfoName'>Willy Wonka</h4>
-                <span className='profileInfoStatus'>Milky bars are on me boyos!!!</span>
+                <h4 className='profileInfoName'>{user.firstname} {user.surname}</h4>
+                <span className='profileInfoStatus'>{user.status}</span>
             </div>
         </>
     )
