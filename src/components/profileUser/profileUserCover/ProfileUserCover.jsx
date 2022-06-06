@@ -2,7 +2,7 @@ import './profileUserCover.css';
 
 
 
-const ProfileUserCover = () => {
+const ProfileUserCover = ({ userInfo }) => {
 
 
     return (

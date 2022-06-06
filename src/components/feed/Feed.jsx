@@ -7,24 +7,22 @@ import Share from '../share/Share';
 
 
 
-
-
-const Feed = () => {
+const Feed = ({ userId }) => {
 
 
     const [posts, setPosts] = useState([]);
 
-
+    // Fetch Posts
     useEffect(() => {
-        
         const fetchFeed = async () => {
-            const res = await axios.get('http://localhost:3000/api/v1/posts/',
-                {
-                    headers: {
+            // Select link based on whether userId has been passed down from profile or not from homepage
+            let link = userId ? `http://localhost:3000/api/v1/users/${userId}` : "http://localhost:3000/api/v1/posts/";
+
+            const res = await axios.get(link,
+                { headers: {
                         "Content-Type": 'application/json',
-                        "Authorization": 'Bearer YkYwNV-BjrtCidkSO0mz2tJ45_zoJYpW4UM0BEqvoPM'
-                    }
-                })
+                        "Authorization": 'Bearer 26b676c1F6mTkagziGL5HJZ29QlTcf45uAtGyUfhD-g'
+                    }})
             setPosts(res.data);
         } 
         fetchFeed();
