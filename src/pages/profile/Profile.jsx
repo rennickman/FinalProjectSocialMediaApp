@@ -28,14 +28,10 @@ const Profile = () => {
         const fetchUserInfo = async () => {
         
             const res = await axios.get(`http://localhost:3000/api/v1/users/${userId}/info`,
-                {
-                    headers: {
+                {headers: {
                         "Content-Type": 'application/json',
                         "Authorization": 'Bearer xyMxdj-vW8AJqherNcmMpkvR3K-bJGUfidMEHRsmEkI'
-                    }
-                })
-            
-            console.log(res.data);
+                    }})
             setUserInfo(res.data);
         }
         fetchUserInfo();

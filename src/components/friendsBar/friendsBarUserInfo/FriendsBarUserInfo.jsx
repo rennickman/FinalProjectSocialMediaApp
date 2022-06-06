@@ -4,7 +4,6 @@ import './friendsBarUserInfo.css';
 
 const FriendsBarUserInfo = ({ userInfo }) => {
 
-    console.log(userInfo)
 
     return (
         <>
