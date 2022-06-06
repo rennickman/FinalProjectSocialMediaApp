@@ -17,7 +17,7 @@ import ProfileUserInfo from '../../components/profileUser/profileUserInfo/Profil
 
 const Profile = () => {
 
-    const [user, setUser] = useState({})
+    const [userInfo, setUserInfo] = useState({})
 
     // Get User ID passed down to Profile page in Params
     const userId = useParams().userId;
@@ -27,20 +27,22 @@ const Profile = () => {
     useEffect(() => {
         const fetchUserInfo = async () => {
         
-            const res = await axios.get(`http://localhost:3000/api/v1/users/${userId}`,
+            const res = await axios.get(`http://localhost:3000/api/v1/users/${userId}/info`,
                 {
                     headers: {
                         "Content-Type": 'application/json',
-                        "Authorization": 'Bearer 80Jvk3R51JFLIQUmLYfkn91bbWRd4AF0e_Ky6LVutCQ'
+                        "Authorization": 'Bearer xyMxdj-vW8AJqherNcmMpkvR3K-bJGUfidMEHRsmEkI'
                     }
                 })
-            setUser(res.data[0].user);
+            
+            console.log(res.data);
+            setUserInfo(res.data);
         }
         fetchUserInfo();
     }, [userId])
 
 
-
+    
 
     return (
         <div>
@@ -50,17 +52,19 @@ const Profile = () => {
                 <div className="profilePageContainer">
                     <Sidebar />
 
-                    <div className="profilePageRight">
+                    
+                    <div className="profilePageRight">                  
                         <div className="profilePageRightTop">
-                            <ProfileUserCover user={user} />
-                            <ProfileUserInfo user={user} />
+                            <ProfileUserCover userInfo={userInfo} />
+                            <ProfileUserInfo userInfo={userInfo} />
                         </div>
-
+                    
                         <div className="profilePageRightBottom">
                             <Feed userId={userId} />
-                            <FriendsBar profile user={user} />
+                            <FriendsBar profile userInfo={userInfo} />
                         </div>
                     </div>
+                     
                 </div>
             </> 
         </div>

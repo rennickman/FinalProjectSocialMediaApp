@@ -2,7 +2,7 @@ import './profileUserInfo.css';
 
 
 
-const ProfileUserInfo = ({ user }) => {
+const ProfileUserInfo = ({ userInfo }) => {
 
 
 
@@ -10,8 +10,8 @@ const ProfileUserInfo = ({ user }) => {
         <>
             {/** Profile Name and Status Section */}
             <div className="profileInfo">
-                <h4 className='profileInfoName'>{user.firstname} {user.surname}</h4>
-                <span className='profileInfoStatus'>{user.status}</span>
+                <h4 className='profileInfoName'>{userInfo.firstname} {userInfo.surname}</h4>
+                <span className='profileInfoStatus'>{userInfo.status}</span>
             </div>
         </>
     )

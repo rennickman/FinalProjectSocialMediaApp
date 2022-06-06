@@ -21,7 +21,7 @@ const Feed = ({ userId }) => {
             const res = await axios.get(link,
                 { headers: {
                         "Content-Type": 'application/json',
-                        "Authorization": 'Bearer 80Jvk3R51JFLIQUmLYfkn91bbWRd4AF0e_Ky6LVutCQ'
+                        "Authorization": 'Bearer xyMxdj-vW8AJqherNcmMpkvR3K-bJGUfidMEHRsmEkI'
                     }})
             setPosts(res.data);
         } 

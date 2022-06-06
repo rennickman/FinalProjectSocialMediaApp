@@ -8,7 +8,7 @@ import FriendsBarUserInfo from './friendsBarUserInfo/FriendsBarUserInfo';
 
 
 
-const FriendsBar = ({ profile, user }) => {
+const FriendsBar = ({ profile, userInfo }) => {
 
     // Friends Bar for the Home Page
     const HomePageFriendsBar = () => {
@@ -26,7 +26,7 @@ const FriendsBar = ({ profile, user }) => {
     const ProfilePageFriendsBar = () => {
         return (
             <>
-                <FriendsBarUserInfo user={user} />
+                <FriendsBarUserInfo userInfo={userInfo} />
                 <FriendsBarFollowsList />
                 <FriendsBarRandomImage />
                 <FriendsBarFriendsList />
