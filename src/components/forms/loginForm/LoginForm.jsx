@@ -31,6 +31,18 @@ const LoginForm = () => {
             );
 
             console.log(res);
+
+            const userRes = await axios.get(`http://localhost:3000/api/v1/users/me`,
+                {
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "Authorization": `Bearer ${res.data.access_token}`
+                    }
+                })
+
+            console.log(userRes);
+
+
         } catch(err) {
             console.log(err);
         }
