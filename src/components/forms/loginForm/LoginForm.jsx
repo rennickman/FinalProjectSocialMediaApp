@@ -45,7 +45,7 @@ const LoginForm = () => {
                             {isFetching ? <CircularProgress color='inherit' /> : "Log In"}
                         </button>
                         <span className="loginForgot">Forgot Password?</span>
-                        <button type="button" onClick={() => navigate('register')} className="loginRegisterButton" disabled={isFetching}>
+                        <button type="button" onClick={() => navigate('/register')} className="loginRegisterButton" disabled={isFetching}>
                             {isFetching ? <CircularProgress color='inherit' /> : "Create new Account"}
                         </button>
                     </form>

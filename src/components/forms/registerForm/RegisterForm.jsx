@@ -24,7 +24,7 @@ const RegisterForm = () => {
                         <input type="password" placeholder='Password' className="loginInput" />
                         <input type="password" placeholder='Confirm Password' className="loginInput" />
                         <button className="loginButton">Sign Up</button>
-                        <button className="loginRegisterButton" type="button" onClick={() => navigate('login')}>
+                        <button className="loginRegisterButton" type="button" onClick={() => navigate('/login')}>
                             Log into your account
                         </button>
                     </form>
