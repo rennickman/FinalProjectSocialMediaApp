@@ -1,9 +1,12 @@
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:3000/api/v1';
 
+const baseUrl = 'http://localhost:3000/api/v1';
 const client_id = "Mv6upz2f2jqvqulXXpQCGDZ5LbgXqunkLAbZqEi70_I";
 const client_secret = "5ENJhgjKD6caOoAij0AJW5jdLlkVNN8XR_BaTZOYoyk";
+
+
+
 
 
 export const loginCall = async (email, password, dispatch) => {
@@ -32,11 +35,11 @@ export const loginCall = async (email, password, dispatch) => {
                 }
             });
 
-        // Dispatch User and Token
+        // Dispatch Success action with user and token
         dispatch({ type: "LOGIN_SUCCESS", user: userRes.data, token: tokenRes.data.access_token });
 
     } catch (err) {
-        console.log(err);
+        // Dispatch Failure Action with error as payload
         dispatch({ type: "LOGIN_FAILURE", payload: err });
     }
-}
+};

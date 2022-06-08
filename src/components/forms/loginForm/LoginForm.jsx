@@ -1,5 +1,6 @@
 import { useContext, useRef } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
+import { useNavigate } from 'react-router-dom';
 
 
 import './loginForm.css';
@@ -12,6 +13,9 @@ const LoginForm = () => {
 
     const emailRef = useRef();
     const passwordRef = useRef();
+    
+
+    const navigate = useNavigate();
 
     const { isFetching, error, dispatch } = useContext(AuthContext);
 
@@ -41,7 +45,7 @@ const LoginForm = () => {
                             {isFetching ? <CircularProgress color='inherit' /> : "Log In"}
                         </button>
                         <span className="loginForgot">Forgot Password?</span>
-                        <button className="loginRegisterButton" disabled={isFetching}>
+                        <button type="button" onClick={() => navigate('register')} className="loginRegisterButton" disabled={isFetching}>
                             {isFetching ? <CircularProgress color='inherit' /> : "Create new Account"}
                         </button>
                     </form>

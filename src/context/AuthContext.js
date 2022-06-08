@@ -2,6 +2,8 @@ import { createContext, useReducer } from 'react';
 
 import AuthReducer from './AuthReducer';
 
+
+
 // Initial state when App is first started
 const INITIAL_STATE = {
     user: null,
@@ -10,9 +12,11 @@ const INITIAL_STATE = {
     error: false
 };
 
-
 // Create Context using our Initial State
 export const AuthContext = createContext(INITIAL_STATE);
+
+
+
 
 
 // Creating wrapper for our context
