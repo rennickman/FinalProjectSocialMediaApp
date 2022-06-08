@@ -1,8 +1,13 @@
+import { useNavigate } from 'react-router-dom';
+
 import './registerForm.css';
 
 
 
 const RegisterForm = () => {
+
+
+    const navigate = useNavigate();
 
 
     return (
@@ -14,13 +19,15 @@ const RegisterForm = () => {
                 </div>
 
                 <div className="loginRight">
-                    <div className="loginBox">
+                    <form className="loginBox">
                         <input type="email" placeholder='Email' className="loginInput" />
                         <input type="password" placeholder='Password' className="loginInput" />
                         <input type="password" placeholder='Confirm Password' className="loginInput" />
                         <button className="loginButton">Sign Up</button>
-                        <button className="loginRegisterButton">Log into your account</button>
-                    </div>
+                        <button className="loginRegisterButton" type="button" onClick={() => navigate('login')}>
+                            Log into your account
+                        </button>
+                    </form>
                 </div>
             </div>
         </>
