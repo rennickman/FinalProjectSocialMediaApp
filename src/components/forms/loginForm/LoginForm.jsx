@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 import './loginForm.css';
-import { loginCall } from '../../../apiCalls';
+import { loginCall } from '../../../apiCalls/loginCall';
 import { AuthContext } from '../../../context/AuthContext';
 
 
@@ -45,7 +45,7 @@ const LoginForm = () => {
                             {isFetching ? <CircularProgress color='inherit' /> : "Log In"}
                         </button>
                         <span className="loginForgot">Forgot Password?</span>
-                        <button type="button" onClick={() => navigate('register')} className="loginRegisterButton" disabled={isFetching}>
+                        <button type="button" onClick={() => navigate('/register')} className="loginRegisterButton" disabled={isFetching}>
                             {isFetching ? <CircularProgress color='inherit' /> : "Create new Account"}
                         </button>
                     </form>

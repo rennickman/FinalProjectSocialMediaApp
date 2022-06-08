@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom'
 
 import './profile.css';
@@ -9,7 +8,8 @@ import Feed from '../../components/feed/Feed';
 import FriendsBar from '../../components/friendsBar/FriendsBar';
 import ProfileUserCover from '../../components/profileUser/profileUserCover/ProfileUserCover';
 import ProfileUserInfo from '../../components/profileUser/profileUserInfo/ProfileUserInfo';
-
+import { AuthContext } from '../../context/AuthContext';
+import { userInfoCall } from '../../apiCalls/userInfoCall';
 
 
 
@@ -20,22 +20,16 @@ const Profile = () => {
     const [userInfo, setUserInfo] = useState({})
 
     // Get User ID passed down to Profile page in Params
-    const userId = useParams().userId;
+    const paramsUserId = useParams().userId;
+
+
+    const { token } = useContext(AuthContext);
 
 
     // Fetch User Info
     useEffect(() => {
-        const fetchUserInfo = async () => {
-        
-            const res = await axios.get(`http://localhost:3000/api/v1/users/${userId}/info`,
-                {headers: {
-                        "Content-Type": 'application/json',
-                        "Authorization": 'Bearer xyMxdj-vW8AJqherNcmMpkvR3K-bJGUfidMEHRsmEkI'
-                    }})
-            setUserInfo(res.data);
-        }
-        fetchUserInfo();
-    }, [userId])
+        userInfoCall(paramsUserId, token, setUserInfo);
+    }, [paramsUserId, token]);
 
 
     
@@ -56,7 +50,7 @@ const Profile = () => {
                         </div>
                     
                         <div className="profilePageRightBottom">
-                            <Feed userId={userId} />
+                            <Feed userId={paramsUserId} />
                             <FriendsBar profile userInfo={userInfo} />
                         </div>
                     </div>

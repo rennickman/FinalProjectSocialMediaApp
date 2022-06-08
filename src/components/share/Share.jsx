@@ -1,13 +1,39 @@
+import { useContext, useRef, useState } from 'react';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 import MoodIcon from '@mui/icons-material/Mood';
 
 import './share.css';
+import { AuthContext } from '../../context/AuthContext'
+import axios from 'axios';
 
 
 
 const Share = () => {
+
+    const { token } = useContext(AuthContext);
+
+    const messageRef = useRef();
+
+    const [file, setFile] = useState(null);
+
+
+
+    const submitHandler = async e => {
+        e.preventDefault();
+
+        try {
+            const res = await axios.post('http://localhost:3000/api/v1/posts/', { "comment": messageRef.current.value },
+                { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } })
+
+            console.log(res);
+
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
 
 
     return (
@@ -16,17 +42,21 @@ const Share = () => {
                 {/** Message Input Section */}
                 <div className="shareTop">
                     <img className='shareProfilePic' src="/assets/babyYoda.jpg" alt="Profile Pic" />
-                    <input placeholder='Say whatever you want....' className="shareInput" />
+                    <input placeholder='Say whatever you want....' className="shareInput" ref={messageRef} />
                 </div>
                 <hr className='shareHr'/>
 
                 {/** Other Media Input Section */}
-                <div className="shareBottom">
+                <form className="shareBottom" onSubmit={submitHandler}>
                     <div className="shareOptions">
-                        <div className="shareOption">
+                        <label htmlFor='file' className="shareOption">
                             <PhotoCameraIcon htmlColor="tomato" className="shareIcon" />
                             <span className="shareOptionText">Photo</span>
-                        </div>
+                            <input 
+                                type="file" id="file" accept=".png,.jpg,.jpeg" onChange={e => setFile(e.target.files[0])}
+                                style={{ display: "none" }} 
+                            />
+                        </label>
 
                         <div className="shareOption">
                             <VideocamIcon htmlColor="blue" className="shareIcon" />
@@ -44,8 +74,8 @@ const Share = () => {
                         </div>
                     </div>
 
-                    <button className="shareButton">Share</button>
-                </div>
+                    <button className="shareButton" type="submit">Share</button>
+                </form>
             </div>
         </div>
     )

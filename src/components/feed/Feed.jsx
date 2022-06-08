@@ -1,32 +1,28 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState, useContext } from 'react';
 
 import './feed.css';
 import Post from '../post/Post';
 import Share from '../share/Share';
+import { AuthContext } from '../../context/AuthContext'
+import { getPostsCall } from '../../apiCalls/getPostsCall';
 
 
 
 const Feed = ({ userId }) => {
 
 
+    const { token } = useContext(AuthContext);
+
     const [posts, setPosts] = useState([]);
+
+    
 
     // Fetch Posts
     useEffect(() => {
-        const fetchFeed = async () => {
-            // Select link based on whether userId has been passed down from profile or not from homepage
-            let link = userId ? `http://localhost:3000/api/v1/users/${userId}` : "http://localhost:3000/api/v1/posts/";
-
-            const res = await axios.get(link,
-                { headers: {
-                        "Content-Type": 'application/json',
-                        "Authorization": 'Bearer 26b676c1F6mTkagziGL5HJZ29QlTcf45uAtGyUfhD-g'
-                    }})
-            setPosts(res.data);
-        } 
-        fetchFeed();
-    }, [])
+        // Select link based on whether userId has been passed down from profile or not from homepage
+        const endpoint = userId ? `/users/${userId}` : "/posts/";
+        getPostsCall(endpoint, token, setPosts);
+    }, [userId, token]);
 
 
 
