@@ -15,10 +15,8 @@ const PostLikesAndComments = ({ comments, likes, postId }) => {
     const { user } = useContext(AuthContext);
     const { token } = useContext(AuthContext);
 
-
     const [likesCounter, setLikesCounter] = useState(likes.length);
     const [like, setLike] = useState([]);
-
 
 
     // Check whether post has been liked by user
@@ -29,7 +27,6 @@ const PostLikesAndComments = ({ comments, likes, postId }) => {
 
 
 
-    
     const likePostHandler = async () => {
         likePostCall(postId, token, setLike);
         setLikesCounter(likesCounter + 1);
@@ -41,8 +38,6 @@ const PostLikesAndComments = ({ comments, likes, postId }) => {
         setLikesCounter(likesCounter - 1);
     }
 
-
-    
 
     
     return (

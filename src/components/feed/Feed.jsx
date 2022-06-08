@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext } from 'react';
-import axios from 'axios';
 
 import './feed.css';
 import Post from '../post/Post';
@@ -23,7 +22,7 @@ const Feed = ({ userId }) => {
         // Select link based on whether userId has been passed down from profile or not from homepage
         const endpoint = userId ? `/users/${userId}` : "/posts/";
         getPostsCall(endpoint, token, setPosts);
-    }, [])
+    }, [userId, token]);
 
 
 

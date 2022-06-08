@@ -27,7 +27,7 @@ export const unlikePostCall = async (postId, likeId, token, setLike) => {
 
     try {
         // Try to Log User In
-        const unlikeRes = await axios.delete(baseUrl + `/posts/${postId}/post_likes/${likeId}`,
+        await axios.delete(baseUrl + `/posts/${postId}/post_likes/${likeId}`,
             { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } }
         );
 
