@@ -1,5 +1,6 @@
 import { useContext, useRef } from 'react';
-import axios from 'axios';
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 import './loginForm.css';
 import { loginCall } from '../../../apiCalls';
@@ -12,7 +13,7 @@ const LoginForm = () => {
     const emailRef = useRef();
     const passwordRef = useRef();
 
-    const { user, token, isFetching, error, dispatch } = useContext(AuthContext);
+    const { isFetching, error, dispatch } = useContext(AuthContext);
 
 
     const handleLogin = async (e) => {
@@ -21,9 +22,6 @@ const LoginForm = () => {
         loginCall(emailRef.current.value, passwordRef.current.value, dispatch);
     }
 
-
-    console.log(user);
-    console.log(token);
     
 
 
@@ -39,9 +37,13 @@ const LoginForm = () => {
                     <form className="loginBox">
                         <input type="email" required placeholder='Email' className="loginInput" ref={emailRef} />                            
                         <input type="password" required placeholder='Password' className="loginInput" ref={passwordRef} />
-                        <button className="loginButton">Log In</button>
+                        <button className="loginButton" disabled={isFetching}>
+                            {isFetching ? <CircularProgress color='inherit' /> : "Log In"}
+                        </button>
                         <span className="loginForgot">Forgot Password?</span>
-                        <button className="loginRegisterButton">Create a new account</button>
+                        <button className="loginRegisterButton" disabled={isFetching}>
+                            {isFetching ? <CircularProgress color='inherit' /> : "Create new Account"}
+                        </button>
                     </form>
                 </div>
             </div>

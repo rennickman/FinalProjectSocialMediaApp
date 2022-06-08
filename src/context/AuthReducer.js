@@ -6,7 +6,7 @@ const AuthReducer = (state, action) => {
             return {
                 user: null,
                 token: null,
-                isFetching: false,
+                isFetching: true,
                 error: false
             };
 
