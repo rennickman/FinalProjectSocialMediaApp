@@ -1,14 +1,22 @@
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+
 import './navbarUser.css';
+import { AuthContext } from '../../../context/AuthContext'
 
 
 
 const NavbarUser = () => {
 
+    const { user } = useContext(AuthContext);
+
 
     return (
         <>
-            {/** Profile Pic */}
-            <img src="/assets/babyYoda.jpg" alt="profilePic" className="navbarProfilePic" />
+            {/** Profile Pic - Links to profile page */}
+            <Link to={`/profile/${user.id}`}>
+                <img src="/assets/babyYoda.jpg" alt="profilePic" className="navbarProfilePic" />
+            </Link>
         </>
     )
 }

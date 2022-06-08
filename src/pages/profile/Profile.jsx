@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom'
 
@@ -9,6 +9,7 @@ import Feed from '../../components/feed/Feed';
 import FriendsBar from '../../components/friendsBar/FriendsBar';
 import ProfileUserCover from '../../components/profileUser/profileUserCover/ProfileUserCover';
 import ProfileUserInfo from '../../components/profileUser/profileUserInfo/ProfileUserInfo';
+import { AuthContext } from '../../context/AuthContext'
 
 
 
@@ -23,6 +24,9 @@ const Profile = () => {
     const userId = useParams().userId;
 
 
+    const { token } = useContext(AuthContext);
+
+
     // Fetch User Info
     useEffect(() => {
         const fetchUserInfo = async () => {
@@ -30,7 +34,7 @@ const Profile = () => {
             const res = await axios.get(`http://localhost:3000/api/v1/users/${userId}/info`,
                 {headers: {
                         "Content-Type": 'application/json',
-                        "Authorization": 'Bearer xyMxdj-vW8AJqherNcmMpkvR3K-bJGUfidMEHRsmEkI'
+                        "Authorization": `Bearer ${token}`
                     }})
             setUserInfo(res.data);
         }
