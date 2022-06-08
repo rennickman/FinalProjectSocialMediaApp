@@ -1,56 +1,29 @@
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 import axios from 'axios';
 
 import './loginForm.css';
+import { loginCall } from '../../../apiCalls';
+import { AuthContext } from '../../../context/AuthContext';
 
 
 
 const LoginForm = () => {
 
-
     const emailRef = useRef();
     const passwordRef = useRef();
+
+    const { user, token, isFetching, error, dispatch } = useContext(AuthContext);
 
 
     const handleLogin = async (e) => {
         e.preventDefault();
         
-        try {
-            const res = await axios.post("http://localhost:3000/api/v1/oauth/token",
-                {
-                    "grant_type": "password",
-                    "email": emailRef.current.value,
-                    "password": passwordRef.current.value,
-                    "client_id": "Mv6upz2f2jqvqulXXpQCGDZ5LbgXqunkLAbZqEi70_I",
-                    "client_secret": "5ENJhgjKD6caOoAij0AJW5jdLlkVNN8XR_BaTZOYoyk"
-                },
-                {
-                    headers: {
-                        "Content-Type": 'application/json',
-                }},
-            );
-
-            console.log(res);
-
-            const userRes = await axios.get(`http://localhost:3000/api/v1/users/me`,
-                {
-                    headers: {
-                        "Content-Type": 'application/json',
-                        "Authorization": `Bearer ${res.data.access_token}`
-                    }
-                })
-
-            console.log(userRes);
-
-
-        } catch(err) {
-            console.log(err);
-        }
-
+        loginCall(emailRef.current.value, passwordRef.current.value, dispatch);
     }
 
 
-
+    console.log(user);
+    console.log(token);
     
 
 
