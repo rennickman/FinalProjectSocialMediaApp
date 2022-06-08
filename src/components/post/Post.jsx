@@ -15,7 +15,7 @@ const Post = ({ post }) => {
             <div className="postWrapper">
                 <PostSender user={post.user} createdAt={post.created_at} />
                 <PostContents message={post.comment} />
-                <PostLikesAndComments comments={post.comments} likes={post.post_likes} />
+                <PostLikesAndComments postId={post.id} comments={post.comments} likes={post.post_likes} />
             </div>
         </div>
     )

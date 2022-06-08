@@ -6,8 +6,14 @@ import AuthReducer from './AuthReducer';
 
 // Initial state when App is first started
 const INITIAL_STATE = {
-    user: null,
-    token: null,
+    user: {
+        id: 1,
+        email: "renn@example.com",
+        role: "admin",
+        firstname: "Ian",
+        surname: "Rennick",
+    },
+    token: "sGH2NLfDbn9cfBsTlVM-xw-JHy7dLpI8Lk175a4-VqA",
     isFetching: false,
     error: false
 };
