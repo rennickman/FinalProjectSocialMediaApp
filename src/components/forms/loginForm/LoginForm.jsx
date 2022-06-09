@@ -17,7 +17,7 @@ const LoginForm = () => {
 
     const navigate = useNavigate();
 
-    const { isFetching, error, dispatch } = useContext(AuthContext);
+    const { isFetching, dispatch } = useContext(AuthContext);
 
 
     const handleLogin = async (e) => {

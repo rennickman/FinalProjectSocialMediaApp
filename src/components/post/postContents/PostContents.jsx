@@ -2,7 +2,7 @@ import './postContents.css';
 
 
 
-const PostContents = ({ message }) => {
+const PostContents = ({ post }) => {
 
 
 
@@ -10,9 +10,10 @@ const PostContents = ({ message }) => {
         <>
             {/** Post Contents Section */}
             <div className="postCenter">
-                <span className="postText">{message}</span>
+                <span className="postText">{post.comment}</span>
                 {/** Post Contents Section */}
-                <img src='/assets/babyYoda.jpg' alt="Post Pic" className='postImage' />
+
+                {post.image_url&& <img src={post.image_url} alt="Post Pic" className='postImage' />}
             </div>
         </>
     )
