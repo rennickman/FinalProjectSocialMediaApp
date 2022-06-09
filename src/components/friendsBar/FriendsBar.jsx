@@ -27,9 +27,9 @@ const FriendsBar = ({ profile, userInfo, friends }) => {
         return (
             <>
                 <FriendsBarUserInfo userInfo={userInfo} />
-                <FriendsBarFollowsList />
+                <FriendsBarFollowsList  />
                 <FriendsBarRandomImage />
-                <FriendsBarFriendsList />
+                <FriendsBarFriendsList friends={friends} />
             </>
         )
     }
