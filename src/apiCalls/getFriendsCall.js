@@ -4,19 +4,16 @@ import axios from 'axios';
 const baseUrl = 'http://localhost:3000/api/v1';
 
 
-export const getPostsCall = async (endpoint, token, setPosts) => {
+
+export const getFriendsCall = async (token, setFriends) => {
 
     try {
-        const postsRes = await axios.get(baseUrl + endpoint,
+        const friendsRes = await axios.get(baseUrl + '/users',
             { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } }
         );
-        setPosts(postsRes.data);
+        setFriends(friendsRes.data);
 
     } catch (err) {
         console.log(err);
     }
 };
-
-
-
-

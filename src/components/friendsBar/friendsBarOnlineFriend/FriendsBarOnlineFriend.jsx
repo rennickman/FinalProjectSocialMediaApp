@@ -2,7 +2,7 @@ import './friendsBarOnlineFriend.css';
 
 
 
-const FriendsBarOnlineFriend = ({ user }) => {
+const FriendsBarOnlineFriend = ({ friend }) => {
 
 
     return (
@@ -10,10 +10,12 @@ const FriendsBarOnlineFriend = ({ user }) => {
             {/** Online Friend */}
             <li className="friendsBarFriend">
                 <div className="friendsBarProfilePicContainer">
-                    <img src={user.profilePic} alt="Friend Profile Pic" className="friendsBarProfilePic" />
+                    <img src="assets/babyYoda.jpg" alt="Friend Profile Pic" className="friendsBarProfilePic" />
                     <span className="friendsBarOnlineStatus"></span>
                 </div>
-                <span className="friendsBarUserName">{user.userName}</span>
+                <span className="friendsBarUserName">
+                    {friend.firstname ? friend.firstname + friend.surname : friend.email}
+                </span>
             </li>
         </>
     )

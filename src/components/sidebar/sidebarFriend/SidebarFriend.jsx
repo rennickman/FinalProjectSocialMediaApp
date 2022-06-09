@@ -2,15 +2,17 @@ import './sidebarFriend.css';
 
 
 
-const SidebarFriend = ({ user }) => {
+const SidebarFriend = ({ friend }) => {
 
 
     return (
         <>
             {/** Sidebar Favourite Friend */}
             <li className="sidebarFriend">
-                <img src={user.profilePic} alt="Friend Profile Pic" className="sidebarFriendProfilePic" />
-                <span className="sidebarFriendName">{user.userName}</span>
+                <img src='assets/babyYoda.jpg' alt="Friend Profile Pic" className="sidebarFriendProfilePic" />
+                <span className="sidebarFriendName">
+                    {friend.firstname ? friend.firstname + friend.surname : friend.email}
+                </span>
             </li>
         </>
     )

@@ -3,21 +3,18 @@ import './sidebarFriendsList.css';
 
 
 
-// Dummy Users List
-import { Users } from '../../../dummyDb';
 
 
 
-
-const SidebarFriendsList = () => {
+const SidebarFriendsList = ({ friends }) => {
 
 
     return (
         <>
             {/** Favourite Friends List Section */}
             <ul className="sidebarFriends">
-                {Users.map(user => (
-                    <SidebarFriend key={user.id} user={user} />
+                {friends.map(friend => (
+                    <SidebarFriend key={friend.id} friend={friend} />
                 ))}
             </ul>
         </>
