@@ -23,15 +23,37 @@ const Share = () => {
     const submitHandler = async e => {
         e.preventDefault();
 
-        try {
-            const res = await axios.post('http://localhost:3000/api/v1/posts/', { "comment": messageRef.current.value },
-                { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } })
 
-            console.log(res);
 
-        } catch(err) {
-            console.log(err);
+        if (file) {
+            const data = new FormData();
+            data.append("post[comment]", messageRef.current.value);
+            data.append("post[image]", file);
+
+            try {
+                const res = await axios.post('http://localhost:3000/api/v1/posts/', data,
+                    { headers: { 'Content-Type': 'multipart/form-data',  "Authorization": `Bearer ${token}` } })
+
+                console.log(res);
+
+            } catch (err) {
+                console.log(err);
+            }
         }
+
+
+        if (!file) {
+            try {
+                const res = await axios.post('http://localhost:3000/api/v1/posts/', { "comment": messageRef.current.value },
+                    { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } })
+
+                console.log(res);
+
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        
     }
 
 
