@@ -3,14 +3,14 @@ import SidebarFriendsList from './sidebarFriendsList/SidebarFriendsList';
 import SidebarMenu from './sidebarMenu/SidebarMenu';
 
 
-const SideMenu = ({ friends }) => {
+const SideMenu = () => {
 
 
     return (
         <div className='sidebar'>
             <div className="sidebarWrapper">
                 <SidebarMenu />
-                <SidebarFriendsList friends={friends} />
+                <SidebarFriendsList />
             </div>
         </div>
     )

@@ -35,9 +35,6 @@ export const loginCall = async (email, password, dispatch) => {
                 }
             });
 
-        console.log(tokenRes.data);
-        console.log(userRes.data);
-
         // Dispatch Success action with user and token
         dispatch({ type: "LOGIN_SUCCESS", user: userRes.data, token: tokenRes.data.access_token });
 
