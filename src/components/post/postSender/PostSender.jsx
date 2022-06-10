@@ -5,19 +5,19 @@ import { Link } from 'react-router-dom';
 import './postSender.css';
 
 
-const PostSender = ({ user, createdAt }) => {
+const PostSender = ({ postUser, createdAt }) => {
 
     
-
+    
     return (
         <>
             {/** Post Sender Section */}
             <div className="postTop">
                 <div className="postTopLeft">
-                    <Link to={`profile/${user.id}`}>
-                        <img src='/assets/babyYoda.jpg' alt="Poster Profile Pic" className="postProfilePic" />
+                    <Link to={`profile/${postUser.id}`}>
+                        <img src={postUser.image_url} alt="Poster Profile Pic" className="postProfilePic" />
                     </Link>
-                    <span className="postUserName">{user.firstname} {user.surname}</span>
+                    <span className="postUserName">{postUser.firstname} {postUser.surname}</span>
                     <span className="postDate">{format(createdAt)}</span>
                 </div>
 

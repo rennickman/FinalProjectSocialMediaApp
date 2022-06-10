@@ -8,7 +8,7 @@ import { getPostsCall } from '../../apiCalls/getPostsCall';
 
 
 
-const Feed = ({ userId }) => {
+const Feed = ({ userId, friends }) => {
 
 
     const { token } = useContext(AuthContext);
@@ -33,7 +33,7 @@ const Feed = ({ userId }) => {
                 <Share />
                 
                 {posts.map(post => (
-                    <Post key={post.id} post={post} />
+                    <Post key={post.id} post={post} friends={friends} />
                 ))}
                 
             </div>
