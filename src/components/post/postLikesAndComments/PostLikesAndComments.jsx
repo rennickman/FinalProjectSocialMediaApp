@@ -2,7 +2,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { useEffect, useState, useContext } from 'react';
 
 import './postLikesAndComments.css';
-import { AuthContext } from '../../../context/AuthContext'
+import { AuthContext } from '../../../context/authContext/AuthContext'
 import { likePostCall, unlikePostCall } from '../../../apiCalls/likePostCall';
 
 

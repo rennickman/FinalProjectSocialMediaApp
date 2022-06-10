@@ -13,7 +13,7 @@ const INITIAL_STATE = {
         firstname: "Ian",
         surname: "Rennick",
     },
-    token: "AakvqU6xeH9BbsUo9PXrYoMek_Tg0xBKz3RKfDIAp1c",
+    token: "yrFzS5jhPz8KA_FC9fwgLfBh83Z7RehCU5eYPcKGyTM",
     isFetching: false,
     error: false
 };

@@ -8,9 +8,8 @@ import Feed from '../../components/feed/Feed';
 import FriendsBar from '../../components/friendsBar/FriendsBar';
 import ProfileUserCover from '../../components/profileUser/profileUserCover/ProfileUserCover';
 import ProfileUserInfo from '../../components/profileUser/profileUserInfo/ProfileUserInfo';
-import { AuthContext } from '../../context/AuthContext';
+import { AuthContext } from '../../context/authContext/AuthContext';
 import { userInfoCall } from '../../apiCalls/userInfoCall';
-import { getFriendsCall } from '../../apiCalls/getFriendsCall';
 
 
 
@@ -19,7 +18,6 @@ import { getFriendsCall } from '../../apiCalls/getFriendsCall';
 const Profile = () => {
 
     const [userInfo, setUserInfo] = useState({})
-    const [friends, setFriends] = useState([]);
 
     // Get User ID passed down to Profile page in Params
     const paramsUserId = useParams().userId;
@@ -34,11 +32,6 @@ const Profile = () => {
     }, [paramsUserId, token]);
 
 
-    // Fetch Friends
-    useEffect(() => {
-        getFriendsCall(token, setFriends);
-    }, [token]);
-
 
     
 
@@ -48,7 +41,7 @@ const Profile = () => {
                 <Navbar />
 
                 <div className="profilePageContainer">
-                    <Sidebar friends={friends} />
+                    <Sidebar />
 
                     
                     <div className="profilePageRight">                  
@@ -58,8 +51,8 @@ const Profile = () => {
                         </div>
                     
                         <div className="profilePageRightBottom">
-                            <Feed userId={paramsUserId} friends={friends} />
-                            <FriendsBar profile userInfo={userInfo} friends={friends} />
+                            <Feed userId={paramsUserId} />
+                            <FriendsBar profile userInfo={userInfo} />
                         </div>
                     </div>
                      

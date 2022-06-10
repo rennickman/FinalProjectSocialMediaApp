@@ -1,18 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 
 import './post.css';
 import PostSender from './postSender/PostSender';
 import PostContents from './postContents/PostContents';
 import PostLikesAndComments from './postLikesAndComments/PostLikesAndComments';
+import { FriendsContext } from '../../context/friendsContext/FriendsContext';
 
 
 
 
-const Post = ({ post, friends }) => {
+const Post = ({ post }) => {
 
+    const { friends } = useContext(FriendsContext);
 
     const [postUser, setPostUser] = useState();
 
+
+    // Get User of post from state
     useEffect(() => {
         const foundUser = friends.find(friend => friend.id === post.user.id);
         setPostUser(foundUser);

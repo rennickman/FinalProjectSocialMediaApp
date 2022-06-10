@@ -1,12 +1,12 @@
 
-export const LoginStart = (userCredentials) => ({
+export const LoginStart = () => ({
     type: 'LOGIN_START'
 });
 
 
 
 export const LoginSuccess = (user, token) => ({
-    type: 'LOGIN_SUCESS',
+    type: 'LOGIN_SUCCESS',
     user: user,
     token: token
 });

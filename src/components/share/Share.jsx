@@ -5,7 +5,7 @@ import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 import MoodIcon from '@mui/icons-material/Mood';
 
 import './share.css';
-import { AuthContext } from '../../context/AuthContext'
+import { AuthContext } from '../../context/authContext/AuthContext'
 import { makePostWithoutImage, makePostWithImage } from '../../apiCalls/makePostCall';
 
 

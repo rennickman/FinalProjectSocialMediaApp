@@ -4,7 +4,6 @@ import './profileUserCover.css';
 
 const ProfileUserCover = ({ userInfo }) => {
 
-    console.log(userInfo);
 
     return (
         <>
