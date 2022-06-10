@@ -20,18 +20,16 @@ const Post = ({ post, friends }) => {
 
 
 
-    // Check needed for rendering profile pic in profile sender -- Refactor later!!
-    if (postUser?.image_url) {
-        return (
-            <div className='post'>
-                <div className="postWrapper">
-                    <PostSender postUser={postUser} createdAt={post.created_at} />
-                    <PostContents post={post} />
-                    <PostLikesAndComments postId={post.id} comments={post.comments} likes={post.post_likes} />
-                </div>
+    return (
+        <div className='post'>
+            <div className="postWrapper">
+                {postUser?.image_url && <PostSender postUser={postUser} createdAt={post.created_at} />}
+                <PostContents post={post} />
+                <PostLikesAndComments postId={post.id} comments={post.comments} likes={post.post_likes} />
             </div>
-        )
-    }
+        </div>
+    )
+    
 }
 
 export default Post;

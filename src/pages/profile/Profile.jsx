@@ -53,7 +53,7 @@ const Profile = () => {
                     
                     <div className="profilePageRight">                  
                         <div className="profilePageRightTop">
-                            <ProfileUserCover userInfo={userInfo} />
+                            {userInfo?.image_url && <ProfileUserCover userInfo={userInfo} />}
                             <ProfileUserInfo userInfo={userInfo} />
                         </div>
                     

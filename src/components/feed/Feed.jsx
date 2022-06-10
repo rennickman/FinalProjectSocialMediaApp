@@ -11,8 +11,7 @@ import { getPostsCall } from '../../apiCalls/getPostsCall';
 const Feed = ({ userId, friends }) => {
 
 
-    const { token } = useContext(AuthContext);
-
+    const { token, user } = useContext(AuthContext);
     const [posts, setPosts] = useState([]);
 
     
@@ -30,7 +29,8 @@ const Feed = ({ userId, friends }) => {
     return (
         <div className='feed'>
             <div className="feedWrapper">
-                <Share />
+                {!userId && <Share />}
+                {userId === user.id.toString() && <Share />}
                 
                 {posts.map(post => (
                     <Post key={post.id} post={post} friends={friends} />
