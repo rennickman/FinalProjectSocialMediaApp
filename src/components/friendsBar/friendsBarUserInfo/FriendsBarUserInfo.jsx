@@ -1,3 +1,5 @@
+import AddIcon from '@mui/icons-material/Add';
+
 import './friendsBarUserInfo.css';
 
 
@@ -8,6 +10,10 @@ const FriendsBarUserInfo = ({ userInfo }) => {
     return (
         <>
             {/** User Info Section */}
+            <button className="friendsBarFollowButton">
+                Follow<AddIcon />
+            </button>
+
             <h4 className="friendsBarUserTitle">User Information</h4>
             <div className="friendsBarInfo">
                 <div className="friendsBarInfoItem">

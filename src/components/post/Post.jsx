@@ -18,8 +18,10 @@ const Post = ({ post }) => {
 
     // Get User of post from state
     useEffect(() => {
-        const foundUser = friends.find(friend => friend.id === post.user.id);
-        setPostUser(foundUser);
+        if(friends) {
+            const foundUser = friends.find(friend => friend.id === post.user.id);
+            setPostUser(foundUser);
+        }
     }, [friends, post.user.id]);
 
 

@@ -3,17 +3,21 @@ import { createContext, useReducer } from 'react';
 import AuthReducer from './AuthReducer';
 
 
+const testUser = {
+    id: 1,
+    email: "renn@example.com",
+    role: "admin",
+    firstname: "Ian",
+    surname: "Rennick"
+}
+
+
+
 
 // Initial state when App is first started
 const INITIAL_STATE = {
-    user: {
-        id: 1,
-        email: "renn@example.com",
-        role: "admin",
-        firstname: "Ian",
-        surname: "Rennick",
-    },
-    token: "yrFzS5jhPz8KA_FC9fwgLfBh83Z7RehCU5eYPcKGyTM",
+    user: testUser,
+    token: "bsQNbvWTUfjP6LwI117PcZ4EdgLYsPLewnoZ321ZSTU",
     isFetching: false,
     error: false
 };
