@@ -1,23 +1,14 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useEffect, useReducer } from 'react';
 
 import AuthReducer from './AuthReducer';
-
-
-const testUser = {
-    id: 1,
-    email: "renn@example.com",
-    role: "admin",
-    firstname: "Ian",
-    surname: "Rennick"
-}
 
 
 
 
 // Initial state when App is first started
 const INITIAL_STATE = {
-    user: testUser,
-    token: "bsQNbvWTUfjP6LwI117PcZ4EdgLYsPLewnoZ321ZSTU",
+    user: JSON.parse(localStorage.getItem('user')) || null,
+    token: JSON.parse(localStorage.getItem('token')) || null,
     isFetching: false,
     error: false
 };
@@ -33,6 +24,15 @@ export const AuthContext = createContext(INITIAL_STATE);
 export const AuthContextProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
+
+
+    // Store User and Token in local Storage
+    useEffect(() => {
+        localStorage.setItem('user', JSON.stringify(state.user));
+        localStorage.setItem('token', JSON.stringify(state.token));
+    }, [state.user, state.token])
+
+
 
     // Pass down state to Children(App)
     return (

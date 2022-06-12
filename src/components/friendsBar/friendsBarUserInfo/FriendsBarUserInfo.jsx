@@ -1,18 +1,39 @@
+import { useContext, useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 import './friendsBarUserInfo.css';
+import { AuthContext } from '../../../context/authContext/AuthContext';
+import { useEffect } from 'react';
 
 
 
 const FriendsBarUserInfo = ({ userInfo }) => {
 
+    const { user } = useContext(AuthContext);
+
+    const [ follow, setFollow ] = useState();
+
+
+    // Check whether profile user is followed by user
+    useEffect(() => {
+        if (user) {
+            const checkFollow = user.followings.find(following => following.id === userInfo.id);
+            checkFollow ? setFollow(checkFollow) : setFollow(null);
+        }
+    }, [userInfo, user])
+
+
 
     return (
         <>
-            {/** User Info Section */}
-            <button className="friendsBarFollowButton">
-                Follow<AddIcon />
-            </button>
+            {/** User Info Section */}    
+            {follow ? (
+                <button className="friendsBarFollowButton">Unfollow <RemoveIcon /></button>
+                ) : (
+                <button className="friendsBarFollowButton">Follow <AddIcon /></button>
+                )
+            }
 
             <h4 className="friendsBarUserTitle">User Information</h4>
             <div className="friendsBarInfo">
