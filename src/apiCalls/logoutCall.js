@@ -10,8 +10,6 @@ const client_secret = "5ENJhgjKD6caOoAij0AJW5jdLlkVNN8XR_BaTZOYoyk";
 
 
 export const logoutCall = async (token, dispatch) => {
-
-    console.log("WWWWWTTTTTFFFFFF?????!!!!!")
     
     localStorage.removeItem('user');
     localStorage.removeItem('token');

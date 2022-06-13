@@ -5,23 +5,36 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import './friendsBarUserInfo.css';
 import { AuthContext } from '../../../context/authContext/AuthContext';
 import { useEffect } from 'react';
+import { followUserCall, unfollowUserCall } from '../../../apiCalls/followUser';
 
 
 
 const FriendsBarUserInfo = ({ userInfo }) => {
 
-    const { user } = useContext(AuthContext);
+    const { user, token } = useContext(AuthContext);
 
     const [ follow, setFollow ] = useState();
 
-
+    
     // Check whether profile user is followed by user
     useEffect(() => {
-        if (user) {
-            const checkFollow = user.followings.find(following => following.id === userInfo.id);
+        if (userInfo.firstname) {
+            const checkFollow = userInfo.followers.find(follower => follower.id === user.id);
             checkFollow ? setFollow(checkFollow) : setFollow(null);
         }
-    }, [userInfo, user])
+    }, [userInfo, user]);
+    
+
+
+    
+    const followUserHandler = () => {
+        followUserCall(userInfo.id, token, setFollow);
+    }
+
+
+    const unfollowUserHandler = () => {
+        unfollowUserCall(userInfo.id, token, setFollow);
+    }
 
 
 
@@ -29,9 +42,13 @@ const FriendsBarUserInfo = ({ userInfo }) => {
         <>
             {/** User Info Section */}    
             {follow ? (
-                <button className="friendsBarFollowButton">Unfollow <RemoveIcon /></button>
+                    <button className="friendsBarFollowButton" onClick={unfollowUserHandler}>
+                        Unfollow <RemoveIcon />
+                    </button>
                 ) : (
-                <button className="friendsBarFollowButton">Follow <AddIcon /></button>
+                    <button className="friendsBarFollowButton" onClick={followUserHandler}>
+                        Follow <AddIcon />
+                    </button>
                 )
             }
 

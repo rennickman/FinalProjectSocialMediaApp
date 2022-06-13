@@ -27,13 +27,13 @@ const PostLikesAndComments = ({ comments, likes, postId }) => {
 
 
 
-    const likePostHandler = async () => {
+    const likePostHandler = () => {
         likePostCall(postId, token, setLike);
         setLikesCounter(likesCounter + 1);
     }
 
 
-    const unlikePostHandler = async () => {
+    const unlikePostHandler = () => {
         unlikePostCall(postId, like.id, token, setLike);
         setLikesCounter(likesCounter - 1);
     }
