@@ -1,0 +1,13 @@
+.friendsBarFollowedUser {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.friendsBarFollowedUserPic {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}

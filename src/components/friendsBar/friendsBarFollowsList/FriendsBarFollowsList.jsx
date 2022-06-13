@@ -1,44 +1,20 @@
 import './friendsBarFollowsList.css';
+import FriendsBarFollowedFriend from '../friendsBarFollowedFriend/FriendsBarFollowedFriend';
 
 
 
-const FriendsBarFollowsList = () => {
+const FriendsBarFollowsList = ({ userInfo }) => {
 
 
     return (
         <>
             {/** User Follows Section */}
             <h4 className="friendsBarFollowsTitle">User Follows:</h4>
+
             <div className="friendsBarFollowsList">
-                <div className="friendsBarFollowedUser">
-                    <img src="assets/seal.jpg" alt="Profile Pic" className="friendsBarFollowedUserPic" />
-                    <span className="friendsBarFollowedUserName">Micky Moore</span>
-                </div>
-
-                <div className="friendsBarFollowedUser">
-                    <img src="assets/seal.jpg" alt="Profile Pic" className="friendsBarFollowedUserPic" />
-                    <span className="friendsBarFollowedUserName">Micky Moore</span>
-                </div>
-
-                <div className="friendsBarFollowedUser">
-                    <img src="assets/seal.jpg" alt="Profile Pic" className="friendsBarFollowedUserPic" />
-                    <span className="friendsBarFollowedUserName">Micky Moore</span>
-                </div>
-
-                <div className="friendsBarFollowedUser">
-                    <img src="assets/seal.jpg" alt="Profile Pic" className="friendsBarFollowedUserPic" />
-                    <span className="friendsBarFollowedUserName">Micky Moore</span>
-                </div>
-
-                <div className="friendsBarFollowedUser">
-                    <img src="assets/seal.jpg" alt="Profile Pic" className="friendsBarFollowedUserPic" />
-                    <span className="friendsBarFollowedUserName">Micky Moore</span>
-                </div>
-
-                <div className="friendsBarFollowedUser">
-                    <img src="assets/seal.jpg" alt="Profile Pic" className="friendsBarFollowedUserPic" />
-                    <span className="friendsBarFollowedUserName">Micky Moore</span>
-                </div>
+                {userInfo.followings?.map(following => (
+                    <FriendsBarFollowedFriend key={following.id} following={following} />
+                ))}
             </div>
         </>
     )
