@@ -1,0 +1,66 @@
+.chat {
+    display: flex;
+    height: calc(100vh - 70px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.chatRoom {
+    flex: 5.5;
+}
+
+.chatRoomWrapper {
+    height: 100%;
+    padding: 10px;
+    background-color:cornflowerblue
+}
+
+
+
+
+
+
+
+
+
+
+.chatOnlineFriends {
+    flex: 3;
+}
+
+.chatOnlineFriendsWrapper {
+    height: 100%;
+    padding: 10px;
+    background-color:violet
+}
+
+
+
+
+
+
+
+
+
+
+
