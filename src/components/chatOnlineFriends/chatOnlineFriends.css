@@ -1,0 +1,9 @@
+.chatOnlineFriends {
+    flex: 3;
+}
+
+.chatOnlineFriendsWrapper {
+    height: 100%;
+    padding: 10px;
+    background-color: violet
+}
