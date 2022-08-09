@@ -17,26 +17,3 @@
     outline: none;
 }
 
-.friendsBarUserInfoTitle {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-.friendsBarInfo {
-    margin-bottom: 30px;
-}
-
-.friendsBarInfoItem {
-    margin-bottom: 10px;
-}
-
-.friendsBarInfoKey {
-    font-weight: 500;
-    margin-right: 15px;
-    color: dimgrey;
-}
-
-.friendsBarInfoValue {
-    font-weight: 300;
-}

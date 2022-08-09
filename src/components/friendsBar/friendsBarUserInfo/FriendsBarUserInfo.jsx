@@ -1,11 +1,12 @@
 import { useContext, useState } from 'react';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+
 
 import './friendsBarUserInfo.css';
 import { AuthContext } from '../../../context/authContext/AuthContext';
 import { useEffect } from 'react';
 import { followUserCall, unfollowUserCall } from '../../../apiCalls/followUser';
+import FriendsBarUserInfoForm from '../friendsBarUserInfoForm/FriendsBarUserInfoForm';
+import FriendsBarUserInfoButtons from '../friendsBarUserInfoButtons/FriendsBarUserInfoButtons';
 
 
 
@@ -37,50 +38,16 @@ const FriendsBarUserInfo = ({ userInfo }) => {
     }
 
 
-
     
 
     return (
         <>
             {/** User Info Section */}  
-            {follow ? (
-                    <button className="friendsBarFollowButton" onClick={unfollowUserHandler}>
-                        Unfollow <RemoveIcon />
-                    </button>
-                ) : (
-                    <button className="friendsBarFollowButton" onClick={followUserHandler}>
-                        Follow <AddIcon />
-                    </button>
-                )
+            {(user.id !== userInfo.id) && 
+                <FriendsBarUserInfoButtons follow={follow} followUserHandler={followUserHandler} unfollowUserHandler={unfollowUserHandler} />
             }
 
-            <h4 className="friendsBarUserTitle">User Information</h4>
-            <div className="friendsBarInfo">
-                <div className="friendsBarInfoItem">
-                    <span className="friendsBarInfoKey">From:</span>
-                    <span className="friendsBarInfoValue">{userInfo.originalCity}</span>
-                </div>
-
-                <div className="friendsBarInfoItem">
-                    <span className="friendsBarInfoKey">Living in:</span>
-                    <span className="friendsBarInfoValue">{userInfo.currentCity}</span>
-                </div>
-
-                <div className="friendsBarInfoItem">
-                    <span className="friendsBarInfoKey">Loves:</span>
-                    <span className="friendsBarInfoValue">{userInfo.loves}</span>
-                </div>
-
-                <div className="friendsBarInfoItem">
-                    <span className="friendsBarInfoKey">Hates:</span>
-                    <span className="friendsBarInfoValue">{userInfo.hates}</span>
-                </div>
-
-                <div className="friendsBarInfoItem">
-                    <span className="friendsBarInfoKey">About me:</span>
-                    <span className="friendsBarInfoValue">{userInfo.desc}</span>
-                </div>
-            </div>
+            <FriendsBarUserInfoForm userInfo={userInfo} />
         </>
     )
 }
