@@ -16,7 +16,7 @@ const Chat = () => {
 
             <div className='chat'>
                 <ChatMenu />
-                <ChatRoom />
+                <ChatRoom userId={2}/>
                 <ChatOnlineFriends />
             </div>
         </>
