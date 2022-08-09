@@ -12,7 +12,6 @@ export const followUserCall = async (userId, token, setFollow) => {
         const followRes = await axios.post(baseUrl + `/users/${userId}/follow`, {},
             { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } }
         );
-        console.log(followRes);
         setFollow(followRes.data);
 
     } catch (err) {
@@ -27,11 +26,9 @@ export const unfollowUserCall = async (userId, token, setFollow) => {
 
     try {
         // Try to unfollow user
-        const unfollowRes = await axios.delete(baseUrl + `/users/${userId}/unfollow`,
+        await axios.delete(baseUrl + `/users/${userId}/unfollow`,
             { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } }
         );
-
-        console.log(unfollowRes);
         setFollow(null);
 
     } catch (err) {

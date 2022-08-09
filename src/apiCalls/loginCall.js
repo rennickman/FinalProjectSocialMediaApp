@@ -2,8 +2,8 @@ import axios from 'axios';
 
 
 const baseUrl = 'http://localhost:3000/api/v1';
-const client_id = "Mv6upz2f2jqvqulXXpQCGDZ5LbgXqunkLAbZqEi70_I";
-const client_secret = "5ENJhgjKD6caOoAij0AJW5jdLlkVNN8XR_BaTZOYoyk";
+const client_id = "pLEqNiPkYsNq7xpKYrzH8YZra6eatRL8kiTxtS_ZTOo";
+const client_secret = "mvDOJC5-3WRA8tichZHbDPi1wYJyEZ-Tov138AebJ0A";
 
 
 

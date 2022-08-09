@@ -1,13 +1,15 @@
-import { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom'
-
 import './profile.css';
+
 import Navbar from '../../components/navbar/Navbar';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Feed from '../../components/feed/Feed';
 import FriendsBar from '../../components/friendsBar/FriendsBar';
 import ProfileUserCover from '../../components/profileUser/profileUserCover/ProfileUserCover';
 import ProfileUserInfo from '../../components/profileUser/profileUserInfo/ProfileUserInfo';
+
+import { useEffect, useState, useContext } from 'react';
+import { useParams } from 'react-router-dom'
+
 import { AuthContext } from '../../context/authContext/AuthContext';
 import { userInfoCall } from '../../apiCalls/userInfoCall';
 
@@ -17,23 +19,22 @@ import { userInfoCall } from '../../apiCalls/userInfoCall';
 
 const Profile = () => {
 
+    // UserInfo stores information about the User who owns the Profile
     const [userInfo, setUserInfo] = useState({})
 
-    // Get User ID passed down to Profile page in Params
+    // Grab the User Id from the Params - {profile/:userId}
     const paramsUserId = useParams().userId;
 
-
+    // Grab Token from Context
     const { token } = useContext(AuthContext);
 
 
-    // Fetch User Info
+    // Fetch Information about Profile User and store in state
     useEffect(() => {
         userInfoCall(paramsUserId, token, setUserInfo);
     }, [paramsUserId, token]);
 
 
-
-    
 
     return (
         <div>
@@ -43,7 +44,6 @@ const Profile = () => {
                 <div className="profilePageContainer">
                     <Sidebar />
 
-                    
                     <div className="profilePageRight">                  
                         <div className="profilePageRightTop">
                             {userInfo?.image_url && <ProfileUserCover userInfo={userInfo} />}
