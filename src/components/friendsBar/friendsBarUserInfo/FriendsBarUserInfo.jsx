@@ -38,9 +38,11 @@ const FriendsBarUserInfo = ({ userInfo }) => {
 
 
 
+    
+
     return (
         <>
-            {/** User Info Section */}    
+            {/** User Info Section */}  
             {follow ? (
                     <button className="friendsBarFollowButton" onClick={unfollowUserHandler}>
                         Unfollow <RemoveIcon />
