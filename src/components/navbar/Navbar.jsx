@@ -1,8 +1,12 @@
+import { Link } from "react-router-dom";
+
 import './navbar.css';
 import NavbarSearch from './navbarSearch/NavbarSearch';
 import NavbarLinks from './navbarLinks/NavbarLinks';
 import NavbarNotifications from './navbarNotifications/NavbarNotifications';
 import NavbarUser from './navbarUser/NavbarUser';
+
+
 
 
 
@@ -13,7 +17,9 @@ const Navbar = () => {
         <div className='navbarContainer'>
             {/** Logo Section */}
             <div className="navbarLeft">
-                <span className="navbarLogo">Social Media App</span>
+                <Link style={{"textDecoration": "none" }} to={"/"}>
+                    <span className="navbarLogo">Social Media App</span>
+                </Link>
             </div>
 
             <NavbarSearch />
