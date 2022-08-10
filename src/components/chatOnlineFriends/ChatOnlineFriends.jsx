@@ -2,14 +2,14 @@ import ChatOnlineFriendsList from '../chatOnlineFriends/chatOnlineFriendsList/Ch
 import './chatOnlineFriends.css';
 
 
-const ChatOnlineFriends = () => {
+const ChatOnlineFriends = ({ setOtherUser }) => {
 
 
     return (
         <>
             <div className="chatOnlineFriends">
                 <div className="chatOnlineFriendsWrapper">
-                    <ChatOnlineFriendsList />
+                    <ChatOnlineFriendsList setOtherUser={setOtherUser} />
                 </div>
             </div>
         </>

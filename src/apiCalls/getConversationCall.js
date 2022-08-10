@@ -22,6 +22,23 @@ export const getConversationCall = async (conversationId, token, setConversation
 
 
 
-export const getConversationId = async () => {
+export const getConversationId = async (conversationName, token, setConversationId) => {
     
+    try {
+        // Try get ID
+        const conversationIdRes = await axios.get(baseUrl + `/conversations/check/${conversationName}`,
+            { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } }
+        );
+
+
+        if (conversationIdRes.data.length === 1) {
+            setConversationId(conversationIdRes.data[0].id);
+        } else {
+            setConversationId("new");
+        }
+
+
+    } catch (err) {
+        console.log(err);
+    }
 }

@@ -6,7 +6,7 @@ import { AuthContext } from '../../../context/authContext/AuthContext';
 
 
 
-const ChatOnlineFriendsList = () => {
+const ChatOnlineFriendsList = ({ setOtherUser }) => {
 
     const { user } = useContext(AuthContext);
 
@@ -14,7 +14,7 @@ const ChatOnlineFriendsList = () => {
     return (
         <div className='onlineFriendsList'>
             {user?.followings?.map(onlineFriend => (
-                <ChatOnlineFriend key={onlineFriend.id} onlineFriend={onlineFriend} />
+                <ChatOnlineFriend key={onlineFriend.id} onlineFriend={onlineFriend} setOtherUser={setOtherUser} />
             ))}
         </div>
     )

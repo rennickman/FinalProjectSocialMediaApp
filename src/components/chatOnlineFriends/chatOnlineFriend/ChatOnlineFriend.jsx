@@ -4,7 +4,7 @@ import { useContext, useState, useEffect } from 'react';
 import { FriendsContext } from '../../../context/friendsContext/FriendsContext';
 
 
-const ChatOnlineFriend = ({ onlineFriend }) => {
+const ChatOnlineFriend = ({ onlineFriend, setOtherUser }) => {
 
     const { friends } = useContext(FriendsContext);
 
@@ -22,7 +22,7 @@ const ChatOnlineFriend = ({ onlineFriend }) => {
 
     return (
         <>
-            <div className="chatOnlineFriend">
+            <div className="chatOnlineFriend" onClick={() => setOtherUser(onlineFriend.id)}>
                 <div className="chatOnlineImageContainer">
                     <img src={followedUser?.image_url} alt="" className="chatOnlineImage" />
                     <div className="chatOnlineBadge"></div>

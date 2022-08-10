@@ -1,4 +1,5 @@
 import './chat.css';
+import { useState } from 'react';
 
 import ChatMenu from '../../components/chatMenu/ChatMenu';
 import ChatOnlineFriends from '../../components/chatOnlineFriends/ChatOnlineFriends';
@@ -9,15 +10,17 @@ import Navbar from '../../components/navbar/Navbar';
 
 const Chat = () => {
 
+    const [otherUser, setOtherUser] = useState(0);
+
 
     return (
         <>
             <Navbar />
 
             <div className='chat'>
-                <ChatMenu />
-                <ChatRoom userId={2}/>
-                <ChatOnlineFriends />
+                <ChatMenu setOtherUser={setOtherUser} />
+                <ChatRoom userId={otherUser}/>
+                <ChatOnlineFriends setOtherUser={setOtherUser} />
             </div>
         </>
         
