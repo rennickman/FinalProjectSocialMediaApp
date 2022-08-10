@@ -1,20 +1,35 @@
 import './chatOnlineFriend.css';
 
+import { useContext, useState, useEffect } from 'react';
+import { FriendsContext } from '../../../context/friendsContext/FriendsContext';
 
 
-const ChatOnlineFriend = () => {
+const ChatOnlineFriend = ({ onlineFriend, setOtherUser }) => {
+
+    const { friends } = useContext(FriendsContext);
+
+    const [followedUser, setFollowedUser] = useState();
+
+
+    // Get Followed User from state for image url
+    useEffect(() => {
+        if (friends) {
+            const foundUser = friends.find(friend => friend.id === onlineFriend.id);
+            setFollowedUser(foundUser);
+        }
+    }, [friends, onlineFriend]);
 
 
     return (
         <>
-            <div className="chatOnlineFriend">
+            <div className="chatOnlineFriend" onClick={() => setOtherUser(onlineFriend.id)}>
                 <div className="chatOnlineImageContainer">
-                    <img src="https://www.thewrap.com/wp-content/uploads/2016/06/jerry-lawler-wwe-jerry-the-king-lawler.jpg" alt="" className="chatOnlineImage" />
+                    <img src={followedUser?.image_url} alt="" className="chatOnlineImage" />
                     <div className="chatOnlineBadge"></div>
                 </div>
 
                 <div className="chatOnlineUserName">
-                    Milly Vanilli
+                    {onlineFriend.firstname ? onlineFriend.firstname + onlineFriend.surname : onlineFriend.email}
                 </div>
             </div>
         </>

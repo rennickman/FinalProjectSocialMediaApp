@@ -2,15 +2,14 @@ import './chatRoomMessage.css';
 
 
 
-const ChatRoomMessage = ({ mine }) => {
-
+const ChatRoomMessage = ({ message, currentUserId }) => {
 
 
     return (
-        <div className={mine ? 'message mine' : 'message'}>
+        <div className={message.user_id !== currentUserId ? 'message mine' : 'message'}>
             <div className="messageTop">
                 <img src="https://thegruelingtruth.com/wp-content/uploads/2018/11/jimcor.jpg" alt="" className="messageImage" />
-                <p className="messageText">Hey how the fuck are ya?</p>
+                <p className="messageText">{message.text}</p>
             </div>
 
 
