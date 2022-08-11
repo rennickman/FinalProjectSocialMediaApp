@@ -47,7 +47,7 @@ const ChatRoom = ({ userId }) => {
         <>
             <div className="chatRoom">
                 <div className="chatRoomWrapper">
-                    <ChatRoomConversation conversationId={conversationId} />
+                    {conversationId&& <ChatRoomConversation conversationId={conversationId} />}
 
                     <ChatRoomForm conversationId={conversationId} conversationName={conversationName} userId={userId} setConversationId={setConversationId} />
                 </div>

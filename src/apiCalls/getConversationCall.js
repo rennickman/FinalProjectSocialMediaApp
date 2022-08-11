@@ -4,7 +4,7 @@ import axios from 'axios';
 const baseUrl = 'http://localhost:3000/api/v1';
 
 
-export const getConversationCall = async (conversationId, token, setConversation) => {
+export const getConversationCall = async (conversationId, token, setMessages) => {
 
     try {
         // Try get conversation
@@ -12,7 +12,7 @@ export const getConversationCall = async (conversationId, token, setConversation
             { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } }
         );
 
-        setConversation(conversationRes.data);
+        setMessages(conversationRes.data.messages);
 
     } catch (err) {
         console.log(err);
