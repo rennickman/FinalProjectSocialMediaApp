@@ -14,7 +14,6 @@ export const sendMessageCall = async (newMessage, token, conversationId) => {
         );
 
         console.log(dmres)
-        window.location.reload();
 
     } catch (err) {
         console.log(err);
