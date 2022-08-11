@@ -69,7 +69,7 @@ const ChatRoomConversation = ({ conversationId }) => {
             }
 
         }
-    }, [conversationId, testConversation]);
+    }, [conversationId]);
 
 
 
