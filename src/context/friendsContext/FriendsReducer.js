@@ -22,6 +22,13 @@ const FriendsReducer = (state, action) => {
                 error: action.payload
             };
 
+        case "FRIENDS_UPDATE":
+            return {
+                friends: [...state.friends, action.payload],
+                isFetching: false,
+                error: false
+            };
+
         default:
             return state;
     }

@@ -16,3 +16,9 @@ export const FetchFriendsFailure = (error) => ({
     type: 'FRIENDS_FAILURE',
     payload: error
 });
+
+
+export const FriendsUpdate = (friend) => ({
+    type: 'FRIENDS_UPDATE',
+    payload: friend
+});
