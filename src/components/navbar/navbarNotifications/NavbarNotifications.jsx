@@ -34,7 +34,6 @@ const NavbarNotifications = () => {
     }, [notifications])
 
 
-    console.log(notifications);
 
     return (
         <>

@@ -24,8 +24,6 @@ function App() {
 
         if (user) {
 
-            console.log("Hello");
-
             // Create a Web socket connection to backend using Action Cable
             const cable = createConsumer('ws://localhost:3000/cable')
 
