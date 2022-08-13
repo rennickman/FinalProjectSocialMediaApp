@@ -1,15 +1,16 @@
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useRef } from 'react';
 
 import './postLikesAndComments.css';
 import { AuthContext } from '../../../context/authContext/AuthContext'
 import { likePostCall, unlikePostCall } from '../../../apiCalls/likePostCall';
+import { makeCommentCall } from '../../../apiCalls/makeCommentCall';
 
 
 
 
 
-const PostLikesAndComments = ({ comments, likes, postId }) => {
+const PostLikesAndComments = ({ comments, likes, postId, setCommentsToggle, commentsToggle }) => {
 
 
     const { user } = useContext(AuthContext);
@@ -17,6 +18,8 @@ const PostLikesAndComments = ({ comments, likes, postId }) => {
 
     const [likesCounter, setLikesCounter] = useState(likes.length);
     const [like, setLike] = useState([]);
+
+    const newCommentRef = useRef();
 
 
     // Check whether post has been liked by user
@@ -39,6 +42,11 @@ const PostLikesAndComments = ({ comments, likes, postId }) => {
     }
 
 
+    const sendCommentHandler = () => {
+        makeCommentCall(newCommentRef.current.value, token, postId)
+    }
+
+
     
     return (
         <>
@@ -56,9 +64,22 @@ const PostLikesAndComments = ({ comments, likes, postId }) => {
                 </div>
 
                 <div className="postBottomRight">
-                    <span className="postCommentsText">{comments.length} Comments</span>
+                    <span onClick={() => setCommentsToggle(!commentsToggle)} className="postCommentsText">{comments.length} Comments</span>
                 </div>
             </div>
+
+            {commentsToggle && (
+                <>
+                    {/** Message Input Section */}
+                    <div className="shareTop">
+                        <img className='shareProfilePic' src="/assets/babyYoda.jpg" alt="Profile Pic" />
+                        <input placeholder='Say whatever you want....' className="shareInput" ref={newCommentRef} />
+                        <button onClick={() => sendCommentHandler()} className="shareButton">Share</button>
+                    </div>
+                    
+                    <hr className='shareHr'/>
+                </>
+            )}
         </>
     )
 }
