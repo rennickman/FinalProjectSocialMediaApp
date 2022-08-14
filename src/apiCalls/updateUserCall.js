@@ -5,11 +5,22 @@ const baseUrl = 'http://localhost:3000/api/v1';
 
 
 
-export const updateUserInfoCall = async (comment, token) => {
+export const updateUserInfoCall = async ( token, infoToChange) => {
+
+    console.log(infoToChange.city);
+    console.log(infoToChange.loves);
+    console.log(infoToChange.hates);
+    console.log(infoToChange.desc);
 
     try {
         // Try to Make Post
-        const infoRes = await axios.put(baseUrl + `/users/updateInfo`, { "comment": comment },
+        const infoRes = await axios.put(baseUrl + `/users/updateInfo`, 
+            {   
+                "currentCity": infoToChange.city,
+                "loves": infoToChange.loves,
+                "hates": infoToChange.hates,
+                "desc": infoToChange.desc
+            },
             { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } }
         );
 
