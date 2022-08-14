@@ -2,10 +2,12 @@ import PersonIcon from '@mui/icons-material/Person';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ChatIcon from '@mui/icons-material/Chat';
 import { useState, useEffect, useContext } from 'react';
+import { Link } from "react-router-dom";
 
 import './navbarNotifications.css';
 import { getNotificationsCall } from '../../../apiCalls/getNotificationsCall';
 import { AuthContext } from '../../../context/authContext/AuthContext';
+import NavbarNotification from '../navbarNotification/NavbarNotification';
 
 
 const NavbarNotifications = () => {
@@ -40,19 +42,41 @@ const NavbarNotifications = () => {
             {/** Notifications Section */}
             <div className="navbarNotifications">
                 <div className="navbarNotification">
-                    <PersonIcon />
-                    <span className="navbarNotificationBadge">{commentNotifications?.length}</span>
+                    <div className="navbarIcon">
+                        <PersonIcon />
+                        <span className="navbarNotificationBadge">{followNotifications?.length}</span>
+                    </div>
+                    <div className="notificationLinks">
+                        {followNotifications?.map(notification => (
+                            <Link to={'/'}><NavbarNotification notification={notification} /></Link>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="navbarNotification">
-                    <FavoriteIcon />
-                    <span className="navbarNotificationBadge">{likeNotifications?.length}</span>
+                    <div className="navbarIcon">
+                        <FavoriteIcon />
+                        <span className="navbarNotificationBadge">{likeNotifications?.length}</span>
+                    </div>
+                    <div className="notificationLinks">
+                        {likeNotifications?.map(notification => (
+                            <Link to={'/'}><NavbarNotification notification={notification} /></Link>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="navbarNotification">
-                    <ChatIcon />
-                    <span className="navbarNotificationBadge">{followNotifications?.length}</span>
+                    <div className="navbarIcon">
+                        <ChatIcon />
+                        <span className="navbarNotificationBadge">{commentNotifications?.length}</span>
+                    </div>
+                    <div className="notificationLinks">
+                        {commentNotifications?.map(notification => (
+                            <Link to={'/'}><NavbarNotification notification={notification} /></Link>
+                        ))}
+                    </div>
                 </div>
+                
             </div>
         </>
     )

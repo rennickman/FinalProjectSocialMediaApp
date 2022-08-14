@@ -6,7 +6,28 @@
 .navbarNotification {
     position: relative;
     margin-right: 15px;
+    display: inline-block;
+}
+
+.navbarIcon {
     cursor: pointer;
+}
+
+.notificationLinks {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    background-color: black;
+}
+
+.notificationLink {
+    display: block;
+    color: white;
+}
+
+.navbarNotification:hover .notificationLinks {
+    display: block;
 }
 
 
