@@ -27,6 +27,8 @@ export const logoutCall = async (token, dispatch) => {
 
         // Dispatch Logout action
         dispatch({ type: "LOGOUT" });
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
         window.location.reload();
 
     } catch (err) {

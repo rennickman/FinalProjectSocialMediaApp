@@ -5,7 +5,7 @@ const baseUrl = 'http://localhost:3000/api/v1';
 
 
 
-export const updateUserInfoCall = async ( token, infoToChange) => {
+export const updateUserInfoCall = async ( token, infoToChange, dispatch) => {
 
     console.log(infoToChange.city);
     console.log(infoToChange.loves);
@@ -24,7 +24,8 @@ export const updateUserInfoCall = async ( token, infoToChange) => {
             { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } }
         );
 
-        console.log(infoRes);
+        // Dispatch Success action with user
+        dispatch({ type: "USER_UPDATE", payload: infoRes.data });
         window.location.reload();
     } catch (err) {
         console.log(err);
@@ -34,32 +35,36 @@ export const updateUserInfoCall = async ( token, infoToChange) => {
 
 
 
-export const updateUserAvatar = async (file, token) => {
+export const updateUserAvatar = async (file, token, dispatch) => {
 
     const data = new FormData();
     data.append("user[avatar]", file);
 
     try {
         // Try to Update Avatar
-        await axios.put(baseUrl + `/users/updateInfo`, data,
+        const infoRes = await axios.put(baseUrl + `/users/updateInfo`, data,
             { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } }
         );
+        // Dispatch Success action with user
+        dispatch({ type: "USER_UPDATE", payload: infoRes.data });
         window.location.reload();
     } catch (err) {
         console.log(err);
     }
 };
 
-export const updateUserCover = async (file, token) => {
+export const updateUserCover = async (file, token, dispatch) => {
 
     const data = new FormData();
     data.append("user[cover]", file);
     
     try {
         // Try to Update Cover
-        await axios.put(baseUrl + `/users/updateInfo`, data,
+        const infoRes = await axios.put(baseUrl + `/users/updateInfo`, data,
             { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } }
         );
+        // Dispatch Success action with user
+        dispatch({ type: "USER_UPDATE", payload: infoRes.data });
         window.location.reload();
     } catch (err) {
         console.log(err);

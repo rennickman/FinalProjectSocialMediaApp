@@ -2,7 +2,6 @@ import PersonIcon from '@mui/icons-material/Person';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ChatIcon from '@mui/icons-material/Chat';
 import { useState, useEffect, useContext } from 'react';
-import { Link } from "react-router-dom";
 
 import './navbarNotifications.css';
 import { getNotificationsCall } from '../../../apiCalls/getNotificationsCall';
@@ -48,7 +47,7 @@ const NavbarNotifications = () => {
                     </div>
                     <div className="notificationLinks">
                         {followNotifications?.map(notification => (
-                            <Link to={'/'}><NavbarNotification notification={notification} /></Link>
+                            <NavbarNotification key={notification.id} notification={notification} />
                         ))}
                     </div>
                 </div>
@@ -60,7 +59,7 @@ const NavbarNotifications = () => {
                     </div>
                     <div className="notificationLinks">
                         {likeNotifications?.map(notification => (
-                            <Link to={'/'}><NavbarNotification notification={notification} /></Link>
+                            <NavbarNotification key={notification.id} notification={notification} />
                         ))}
                     </div>
                 </div>
@@ -72,7 +71,7 @@ const NavbarNotifications = () => {
                     </div>
                     <div className="notificationLinks">
                         {commentNotifications?.map(notification => (
-                            <Link to={'/'}><NavbarNotification notification={notification} /></Link>
+                            <NavbarNotification key={notification.id} notification={notification} />
                         ))}
                     </div>
                 </div>

@@ -15,6 +15,7 @@ export const userInfoCall = async (userId, token, setUserInfo) => {
         );
 
         setUserInfo(userInfoRes.data);
+        
 
     } catch (err) {
         console.log(err);

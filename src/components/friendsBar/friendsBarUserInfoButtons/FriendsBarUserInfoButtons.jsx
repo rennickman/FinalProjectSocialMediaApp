@@ -11,7 +11,7 @@ import { AuthContext } from '../../../context/authContext/AuthContext';
 
 const FriendsBarUserInfoButtons = ({ follow, followUserHandler, unfollowUserHandler, other }) => {
 
-    const {token} = useContext(AuthContext);
+    const {token, dispatch} = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -21,12 +21,12 @@ const FriendsBarUserInfoButtons = ({ follow, followUserHandler, unfollowUserHand
 
 
     const handleProfileChange = () => {
-        updateUserAvatar(avatarFile, token);
+        updateUserAvatar(avatarFile, token, dispatch);
     }
 
 
     const handleCoverChange = () => {
-        updateUserCover(coverFile, token);
+        updateUserCover(coverFile, token, dispatch);
     }
 
    

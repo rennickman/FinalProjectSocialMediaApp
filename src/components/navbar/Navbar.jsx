@@ -18,7 +18,7 @@ const Navbar = () => {
             {/** Logo Section */}
             <div className="navbarLeft">
                 <Link style={{"textDecoration": "none" }} to={"/"}>
-                    <span className="navbarLogo">Social Media App</span>
+                    <span className="navbarLogo">Rennbook</span>
                 </Link>
             </div>
 

@@ -31,7 +31,7 @@ const ChatRoomForm = ({ conversationId, conversationName, userId, setConversatio
         <>
             <div className="chatRoomBottom">
                 <textarea
-                    className="messageInput" placeholder='Writie something will ya? sake like...'
+                    className="messageInput" placeholder='Send a message...'
                     onChange={e => setNewMessage(e.target.value)} value={newMessage}
                 ></textarea>
                 <button className="messageSubmitButton" onClick={sendMessageHandler}>Send</button>

@@ -71,10 +71,10 @@ const PostLikesAndComments = ({ comments, likes, postId, setCommentsToggle, comm
             {commentsToggle && (
                 <>
                     {/** Message Input Section */}
-                    <div className="shareTop">
-                        <img className='shareProfilePic' src="/assets/babyYoda.jpg" alt="Profile Pic" />
-                        <input placeholder='Say whatever you want....' className="shareInput" ref={newCommentRef} />
-                        <button onClick={() => sendCommentHandler()} className="shareButton">Share</button>
+                    <div className="commentForm">
+                        <img className='sendCommentProfilePic' src="/assets/babyYoda.jpg" alt="Profile Pic" />
+                        <input placeholder='Leave a comment...' className="commentInput" ref={newCommentRef} />
+                        <button onClick={() => sendCommentHandler()} className="sendButton">Send</button>
                     </div>
                     
                     <hr className='shareHr'/>

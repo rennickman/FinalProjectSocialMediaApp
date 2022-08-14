@@ -15,7 +15,7 @@ const FriendsBarUserInfoForm = ({ userInfo }) => {
     const [newHates, setNewHates] = useState("");
     const [newDesc, setNewDesc] = useState("");
 
-    const { token } = useContext(AuthContext);
+    const { token, user, dispatch } = useContext(AuthContext);
 
     const handleUserInfoUpdate = () => {
         const infoToChange = {
@@ -25,53 +25,55 @@ const FriendsBarUserInfoForm = ({ userInfo }) => {
             "desc": newDesc !== "" ? newDesc : userInfo.desc,
         }
 
-        updateUserInfoCall(token, infoToChange);
+        updateUserInfoCall(token, infoToChange, dispatch);
     }
 
     
     return (
         <>
-            <h4 className="friendsBarUserTitle">User Information</h4>
-            <div className="friendsBarInfo">
-                <div className="friendsBarInfoItem">
-                    <span className="friendsBarInfoKey">City:</span>
-                    {editMode ? (
-                        <input type="text" value={newCity} onChange={e => setNewCity(e.target.value)} placeholder={userInfo?.currentCity}></input>
-                    ) : (
-                        <span className="friendsBarInfoValue">{userInfo?.currentCity}</span>
-                    )}
+            <div className="userInfoWrapper">
+                <h4 className="friendsBarUserTitle">User Information</h4>
+                <div className="friendsBarInfo">
+                    <div className="friendsBarInfoItem">
+                        <span className="friendsBarInfoKey">City:</span>
+                        {editMode ? (
+                            <input type="text" value={newCity} onChange={e => setNewCity(e.target.value)} placeholder={userInfo?.currentCity}></input>
+                        ) : (
+                            <span className="friendsBarInfoValue">{userInfo?.currentCity}</span>
+                        )}
+                    </div>
+
+                    <div className="friendsBarInfoItem">
+                        <span className="friendsBarInfoKey">Loves:</span>
+                        {editMode ? (
+                            <input type="text" value={newLoves} onChange={e => setNewLoves(e.target.value)} placeholder={userInfo?.loves}></input>
+                        ) : (
+                            <span className="friendsBarInfoValue">{userInfo?.loves}</span>
+                        )}
+                    </div>
+
+                    <div className="friendsBarInfoItem">
+                        <span className="friendsBarInfoKey">Hates:</span>
+                        {editMode ? (
+                            <input type="text" value={newHates} onChange={e => setNewHates(e.target.value)} placeholder={userInfo?.hates}></input>
+                        ) : (
+                            <span className="friendsBarInfoValue">{userInfo?.hates}</span>
+                        )}
+                    </div>
+
+                    <div className="friendsBarInfoItem">
+                        <span className="friendsBarInfoKey">About me:</span>
+                        {editMode ? (
+                            <textarea value={newDesc} onChange={e => setNewDesc(e.target.value)} placeholder={userInfo?.desc}></textarea>
+                        ) : (
+                            <span className="friendsBarInfoValue">{userInfo?.desc}</span>
+                        )}
+                    </div>
                 </div>
 
-                <div className="friendsBarInfoItem">
-                    <span className="friendsBarInfoKey">Loves:</span>
-                    {editMode ? (
-                        <input type="text" value={newLoves} onChange={e => setNewLoves(e.target.value)} placeholder={userInfo?.loves}></input>
-                    ) : (
-                        <span className="friendsBarInfoValue">{userInfo?.loves}</span>
-                    )}
-                </div>
-
-                <div className="friendsBarInfoItem">
-                    <span className="friendsBarInfoKey">Hates:</span>
-                    {editMode ? (
-                        <input type="text" value={newHates} onChange={e => setNewHates(e.target.value)} placeholder={userInfo?.hates}></input>
-                    ) : (
-                        <span className="friendsBarInfoValue">{userInfo?.hates}</span>
-                    )}
-                </div>
-
-                <div className="friendsBarInfoItem">
-                    <span className="friendsBarInfoKey">About me:</span>
-                    {editMode ? (
-                        <textarea value={newDesc} onChange={e => setNewDesc(e.target.value)} placeholder={userInfo?.desc}></textarea>
-                    ) : (
-                        <span className="friendsBarInfoValue">{userInfo?.desc}</span>
-                    )}
-                </div>
+                {editMode && <button className='userInfoButton' onClick={() => handleUserInfoUpdate()}>Update</button>}
+                {userInfo.id === user.id && <button className='userInfoButton' onClick={() => setEditMode(!editMode)}>Edit Info</button>}
             </div>
-
-            {editMode && <button onClick={() => handleUserInfoUpdate()}>Update</button>}
-            <button onClick={() => setEditMode(!editMode)}>Edit Info</button>
         </>
     )
 }
