@@ -12,7 +12,7 @@ import { makePostWithoutImage, makePostWithImage } from '../../apiCalls/makePost
 
 const Share = () => {
 
-    const { token } = useContext(AuthContext);
+    const { token, user } = useContext(AuthContext);
 
     const messageRef = useRef();
 
@@ -37,7 +37,7 @@ const Share = () => {
             <div className="shareWrapper">
                 {/** Message Input Section */}
                 <div className="shareTop">
-                    <img className='shareProfilePic' src="/assets/babyYoda.jpg" alt="Profile Pic" />
+                    <img className='shareProfilePic' src={user?.image_url} alt="Profile Pic" />
                     <input placeholder='Say whatever you want....' className="shareInput" ref={messageRef} />
                 </div>
                 <hr className='shareHr'/>

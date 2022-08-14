@@ -15,7 +15,7 @@ const NavbarUser = () => {
         <>
             {/** Profile Pic - Links to profile page */}
             <Link to={`/profile/${user.id}`}>
-                <img src="/assets/babyYoda.jpg" alt="profilePic" className="navbarProfilePic" />
+                <img src={user?.image_url} alt="profilePic" className="navbarProfilePic" />
             </Link>
         </>
     )

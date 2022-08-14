@@ -42,10 +42,13 @@ const FriendsBarUserInfo = ({ userInfo }) => {
 
     return (
         <>
-            {/** User Info Section */}  
-            {(user.id !== userInfo.id) && 
-                <FriendsBarUserInfoButtons follow={follow} followUserHandler={followUserHandler} unfollowUserHandler={unfollowUserHandler} />
-            }
+           
+
+            {(user.id !== userInfo.id) ? (
+                <FriendsBarUserInfoButtons follow={follow} followUserHandler={followUserHandler} unfollowUserHandler={unfollowUserHandler} other={true} />
+            ) : (
+                <FriendsBarUserInfoButtons follow={follow} followUserHandler={followUserHandler} unfollowUserHandler={unfollowUserHandler} other={false} />
+            )}
 
             <FriendsBarUserInfoForm userInfo={userInfo} />
         </>

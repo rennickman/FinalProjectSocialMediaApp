@@ -9,7 +9,7 @@ const ProfileUserCover = ({ userInfo }) => {
     return (
         <>
             <div className="profileCover">
-                <img src="assets/babyYoda.jpg" alt="Cover" className="profileCoverPic" />
+                <img src={userInfo.cover_url} alt="Cover" className="profileCoverPic" />
                 <img src={userInfo.image_url} alt="Profile" className="profilePic" />
                
             </div>
