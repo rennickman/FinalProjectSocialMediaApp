@@ -21,7 +21,6 @@ const PostComment = ({ comment }) => {
     }, [friends, comment])
 
 
-    console.log(commentUser);
 
     if (commentUser) {
         return (

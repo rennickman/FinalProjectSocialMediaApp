@@ -22,7 +22,6 @@ const Navbar = () => {
                 </Link>
             </div>
 
-            <NavbarSearch />
 
             <div className="navbarRight">
                 <NavbarLinks />

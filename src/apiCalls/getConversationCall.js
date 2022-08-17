@@ -42,3 +42,19 @@ export const getConversationId = async (conversationName, token, setConversation
         console.log(err);
     }
 }
+
+
+
+export const getConversationsList = async (token, setConversationsList) => {
+
+    try {
+        const conversationsRes = await axios.get(baseUrl + '/users/conversations',
+            { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } }
+        );
+
+        setConversationsList(conversationsRes.data);
+
+    } catch (err) {
+        console.log(err);
+    }
+};

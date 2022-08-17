@@ -1,16 +1,44 @@
 import './chatMenuConversation.css';
+import { useState, useEffect, useContext } from 'react';
+import { FriendsContext } from '../../../context/friendsContext/FriendsContext';
 
 
-const Conversation = () => {
+const ChatMenuConversation = ({ conversation, initiated, received, setOtherUser }) => {
 
 
+    const [userId, setUserId] = useState();
+    const [userInfo, setUserInfo] = useState();
 
-    return (
-        <div className='conversation'>
-            <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5Mzk0NDcxNjk0MTgxNzA5/macho01_ba.jpg" alt="" className="conversationImg" />
-            <span className="conversationName">Macho Man</span>
-        </div>
-    )
+    const { friends } = useContext(FriendsContext);
+
+
+    // Get Other User Id
+    useEffect(() => {
+        if (initiated) {
+            setUserId(conversation.user_b_id);
+        } else if (received) {
+            setUserId(conversation.user_a_id);
+        }
+    }, [conversation, initiated, received]);
+
+
+    // Get other User
+    useEffect(() => {
+        if(userId && friends) {
+            setUserInfo(friends.filter(friend => userId === friend.id)[0]);
+        }
+    }, [friends, userId])
+
+    
+
+    if (userId) {
+        return (
+            <div className='conversation' onClick={() => setOtherUser(userId)}>
+                <img src={userInfo?.image_url} alt="" className="conversationImg" />
+                <span className="conversationName">{userInfo?.firstname} {userInfo?.surname}</span>
+            </div>
+        )
+    }
 }
 
-export default Conversation;
+export default ChatMenuConversation;

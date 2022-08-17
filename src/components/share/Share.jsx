@@ -22,7 +22,7 @@ const Share = () => {
 
         if (file) {
             makePostWithImage(messageRef.current.value, file, token)
-        } else {
+        } else if (messageRef.current.value) {
             makePostWithoutImage(messageRef.current.value, token);
         }
     }

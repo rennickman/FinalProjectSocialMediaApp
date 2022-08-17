@@ -1,5 +1,5 @@
 import './chat.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import ChatMenu from '../../components/chatMenu/ChatMenu';
 import ChatOnlineFriends from '../../components/chatOnlineFriends/ChatOnlineFriends';

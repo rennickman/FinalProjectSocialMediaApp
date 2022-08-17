@@ -1,14 +1,13 @@
 import './friendsBarRandomImage.css'
 
 
-
-const FriendsBarRandomImage = () => {
+const FriendsBarRandomImage = ({ randomPost }) => {
 
 
     return (
         <>
             {/** Random Post Image */}
-            <img src="/assets/babyYoda.jpg" alt="Random Friends Post" className="friendsBarRandomPostImage" />
+            <img src={randomPost?.image_url} alt="Random Friends Post" className="friendsBarRandomPostImage" />
         </>
     )
 }

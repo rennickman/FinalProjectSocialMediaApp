@@ -1,5 +1,5 @@
 import { AuthContext } from '../../../context/authContext/AuthContext';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { createConsumer } from '@rails/actioncable';
 
 import ChatRoomMessage from '../chatRoomMessage/ChatRoomMessage';
@@ -14,6 +14,7 @@ const ChatRoomConversation = ({ conversationId }) => {
     const [messages, setMessages] = useState([]);
     const { token, user } = useContext(AuthContext);
 
+    const scrollRef = useRef();
 
 
     // Fetch conversation if conversation ID exists
@@ -41,7 +42,6 @@ const ChatRoomConversation = ({ conversationId }) => {
                 id: conversationId
             }
 
-
             const handlers = {
                 // Fires when we receive data
                 received(data) {
@@ -58,7 +58,6 @@ const ChatRoomConversation = ({ conversationId }) => {
                     console.log("disconnected");
                 }
             };
-
             // Creates actual subscription
             const subscription = cable.subscriptions.create(paramsToSend, handlers);
 
@@ -73,11 +72,18 @@ const ChatRoomConversation = ({ conversationId }) => {
 
 
 
+    useEffect(() => {
+        scrollRef.current?.scrollIntoView({behavior: "smooth"})
+    }, [messages])
+
+
     return (
         <>
             <div className="chatRoomTop">
                 {messages?.map(message => (
-                    <ChatRoomMessage key={message.id} message={message} currentUserId={user.id} />
+                    <div ref={scrollRef}>
+                        <ChatRoomMessage key={message.id} message={message} currentUserId={user.id} />
+                    </div>
                 ))}
             </div>
         </>

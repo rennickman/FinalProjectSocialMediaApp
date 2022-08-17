@@ -2,8 +2,8 @@ import axios from 'axios';
 
 
 const baseUrl = 'http://localhost:3000/api/v1';
-const client_id = "pLEqNiPkYsNq7xpKYrzH8YZra6eatRL8kiTxtS_ZTOo";
-const client_secret = "mvDOJC5-3WRA8tichZHbDPi1wYJyEZ-Tov138AebJ0A";
+const client_id = "0soa3lW8AdE4GU0MROg2FfC8D7bKNHSmhws_Yt4F_ZI";
+const client_secret = "yYeqs-f2LVHVfbLNQE4Pj_B93-oq-OYFL3nO0qFP1lQ";
 
 
 
@@ -23,7 +23,7 @@ export const loginCall = async (email, password, dispatch) => {
                 "client_id": client_id,
                 "client_secret": client_secret
             },
-            { headers: { "Content-Type": 'application/json' }}
+            { headers: { "Content-Type": 'application/json' } }
         );
 
         // Try to get User

@@ -2,21 +2,13 @@ import axios from 'axios';
 
 
 const baseUrl = 'http://localhost:3000/api/v1';
-const client_id = "pLEqNiPkYsNq7xpKYrzH8YZra6eatRL8kiTxtS_ZTOo";
+const client_id = "0soa3lW8AdE4GU0MROg2FfC8D7bKNHSmhws_Yt4F_ZI";
 
 
 
 
 
 export const registrationCall = async (email, password, firstName, surname, city, dispatch) => {
-
-
-    console.log(email);
-    console.log(password);
-    console.log(firstName);
-    console.log(surname);
-    console.log(city);
-
 
 
     // Dispatch Login Start Action

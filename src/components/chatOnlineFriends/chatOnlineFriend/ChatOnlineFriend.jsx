@@ -11,6 +11,7 @@ const ChatOnlineFriend = ({ onlineFriend, setOtherUser }) => {
     const [followedUser, setFollowedUser] = useState();
 
 
+
     // Get Followed User from state for image url
     useEffect(() => {
         if (friends) {

@@ -18,8 +18,6 @@ export const AuthContext = createContext(INITIAL_STATE);
 
 
 
-
-
 // Creating wrapper for our context
 export const AuthContextProvider = ({ children }) => {
 

@@ -19,7 +19,8 @@ const ChatRoomForm = ({ conversationId, conversationName, userId, setConversatio
     // Handles Sending Message
     const sendMessageHandler = () => {
         if (newMessage && conversationId !== "new") {
-            sendMessageCall(newMessage, token, conversationId)
+            sendMessageCall(newMessage, token, conversationId);
+            setNewMessage("");
 
         } else if (newMessage && conversationId === "new") {
             sendFirstMessageCall(newMessage, token, conversationName, user.id, userId, setConversationId)

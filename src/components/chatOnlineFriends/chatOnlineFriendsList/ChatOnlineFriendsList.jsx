@@ -19,7 +19,7 @@ const ChatOnlineFriendsList = ({ setOtherUser }) => {
         }
     }, [token])
 
-    
+
     return (
         <div className='onlineFriendsList'>
             {followings?.map(onlineFriend => (

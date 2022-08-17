@@ -7,7 +7,6 @@ import './postSender.css';
 
 const PostSender = ({ postUser, createdAt }) => {
 
-    console.log(createdAt);
     
     return (
         <>

@@ -13,7 +13,7 @@ export const updateUserInfoCall = async ( token, infoToChange, dispatch) => {
     console.log(infoToChange.desc);
 
     try {
-        // Try to Make Post
+        // Try to update user info
         const infoRes = await axios.put(baseUrl + `/users/updateInfo`, 
             {   
                 "currentCity": infoToChange.city,
@@ -23,6 +23,7 @@ export const updateUserInfoCall = async ( token, infoToChange, dispatch) => {
             },
             { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } }
         );
+        console.log(infoRes);
 
         // Dispatch Success action with user
         dispatch({ type: "USER_UPDATE", payload: infoRes.data });
@@ -45,8 +46,10 @@ export const updateUserAvatar = async (file, token, dispatch) => {
         const infoRes = await axios.put(baseUrl + `/users/updateInfo`, data,
             { headers: { "Content-Type": 'application/json', "Authorization": `Bearer ${token}` } }
         );
+        console.log(infoRes);
         // Dispatch Success action with user
         dispatch({ type: "USER_UPDATE", payload: infoRes.data });
+        localStorage.setItem('user', JSON.stringify(infoRes.data));
         window.location.reload();
     } catch (err) {
         console.log(err);

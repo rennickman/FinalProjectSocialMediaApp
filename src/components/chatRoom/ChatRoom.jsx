@@ -5,7 +5,8 @@ import { AuthContext } from '../../context/authContext/AuthContext';
 import { getConversationId } from '../../apiCalls/getConversationCall';
 import ChatRoomConversation from './chatRoomConversation/ChatRoomConversation';
 import ChatRoomForm from './chatRoomForm/ChatRoomForm';
-
+import { FriendsContext } from '../../context/friendsContext/FriendsContext';
+import { getFriendsCall } from '../../apiCalls/getFriendsCall';
 
 
 
@@ -17,12 +18,20 @@ const ChatRoom = ({ userId }) => {
     
 
     const { token, user } = useContext(AuthContext);
+    const { dispatch } = useContext(FriendsContext);
+
+
+    // Fetch Users
+    useEffect(() => {
+        getFriendsCall(token, dispatch);
+    }, [token, dispatch]);
 
     
 
 
     // Set conversation Name
     useEffect(() => {
+        setConversationId(null);
         if (user.id < userId) {
             setConversationName(`private_${user.id}_${userId}`)
         } else {
